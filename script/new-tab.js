@@ -1,108 +1,50 @@
-/*
-  Copyright 2020 Google LLC
+const e = (selector) => document.querySelector(selector)
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-*/
-
-function setVisible(selector, show) {
-  for (const el of document.querySelectorAll(selector)) {
-    el.style.visibility = show ? 'visible' : 'hidden'
-  }
+const addLine = (line) => {
+  e('#bookmarks-tree').innerHTML += line
 }
+const __main = () => {
+  let book = chrome.bookmarks
+  book.getTree((tree) => {
+    let page = tree[0].children[0]
+    console.log('bookPage', page)
+    // addLine(`<h1>${page.title}</h1>`)
+    // page.children.forEach((docSet) => {
+    //   addLine(`<h3>${docSet.title}</h3>`)
+    //   docSet.children.forEach((site) => {
+    //     addLine(`<p>${site.title}</p>`)
+    //   })
+    // })
 
-function waitForImage(img, src) {
-  return new Promise((resolve, reject) => {
-    img.addEventListener('load', resolve, { once: true })
-    img.addEventListener('error', resolve, { once: true })
-    img.src = src
+    const flatDeep = (arr, d) => {
+      return d > 0
+        ? arr.reduce((acc, val) => {
+            // console.log('acc', acc)
+            // console.log('val', val)
+            let o = {
+              title: val.title,
+              url: val.url,
+            }
+            let next = o
+            if (val.url === undefined) {
+              console.log('这是个目录', val.title)
+            }
+            if (Array.isArray(val.children)) {
+              next = flatDeep(val.children, d - 1)
+            }
+            return acc.concat(next)
+          }, [])
+        : arr.slice()
+    }
+
+    let a2 = flatDeep(tree, Infinity)
+    console.log(a2)
+
+    // let leaf = tree.flat(Infinity)
+    // console.log('leaf', leaf)
   })
-}
-
-async function loadBackground(id, entry, title, opts, fallback) {
-  const el = document.getElementById(id)
-  const src = entry[title]
-
-  if (src) {
-    const img = new Image()
-    await waitForImage(img, src)
-    el.style.background = `${opts} url(${src}), ${fallback}`
-  }
-}
-
-function loadBlock(id, entry, title) {
-  const el = document.getElementById(id)
-  const linkProp = title + ' link'
-  if (entry.hasOwnProperty(linkProp)) {
-    el.classList.add('link')
-    el.addEventListener('click', () => {
-      window.open(entry[linkProp])
-    })
-  }
-}
-
-async function loadTextBox(id, entry, title) {
-  loadBlock(id, entry, title)
-  const el = document.getElementById(id)
-  const span = el.querySelector('span')
-  if (entry[title]) {
-    span.textContent = entry[title]
-  }
-  await document.fonts.ready
-
-  const fontSize = parseInt(getComputedStyle(el).fontSize, 10)
-  const resizeObserver = new ResizeObserver((entries) => {
-    shrinkTextToFit(el, span, fontSize)
-  })
-  resizeObserver.observe(el)
-}
-
-async function loadImage(id, entry, title) {
-  loadBlock(id, entry, title)
-  const el = document.getElementById(id)
-  const div = el.querySelector('div')
-  const img = new Image()
-  if (entry[title]) {
-    await waitForImage(img, entry[title])
-    div.style.setProperty('background-image', `url(${entry[title]})`)
-  }
-}
-
-async function main() {
-  setVisible('#display > *', false)
-
-  const dbm = new DBManager(SHEET_URL)
-  const feed = await dbm.load()
-  if (feed) {
-    const entry = feed[Math.floor(Math.random() * feed.length)]
-
-    await Promise.all([
-      loadBackground('display', entry, 'background image', 'center/contain no-repeat', '#ffffff'),
-      loadImage('block1', entry, 'block 1'),
-      loadTextBox('block2', entry, 'block 2'),
-      loadImage('block3', entry, 'block 3'),
-      loadImage('block4', entry, 'block 4'),
-      loadImage('block5', entry, 'block 5'),
-      loadImage('block6', entry, 'block 6'),
-      loadTextBox('block7', entry, 'block 7'),
-      loadImage('block8', entry, 'block 8'),
-    ])
-    setVisible('#display > *', true)
-  } else {
-    setVisible('#feed-error', true)
-  }
 }
 
 window.addEventListener('load', () => {
-  console.log('load,', chrome.bookmarks)
-  // main()
+  __main()
 })

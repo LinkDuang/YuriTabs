@@ -5,8 +5,8 @@ html, body {
 
 
 body {
-  align-items: stretch;
-  display: flex;
+  /* align-items: stretch; */
+  /* display: flex; */
   margin: 0px;
   padding: 0px;
 }
