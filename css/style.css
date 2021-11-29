@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  margin: 0px;
+  margin: -1000px;
   padding: 0px;
   height: auto;
 }
@@ -14,83 +14,92 @@ body {
   height: 200px;
 }
 
-/* @property --offset-deg1 {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 309deg;
-}
-@property --offset-deg2 {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 39deg;
-}
-@property --offset-deg3 {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 144deg;
-}
-@property --offset-deg4 {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 166deg;
-}
-@property --offset-deg5 {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 212deg;
-}
-@keyframes rotateBackground {
-  to {
-    --offset-deg1: 129deg;
-    --offset-deg2: 69deg;
-    --offset-deg3: 288deg;
-    --offset-deg4: 146deg;
-    --offset-deg5: 359deg;
-  }
+[data-theme='light']:root {
+  background-image: linear-gradient(
+      135deg,
+      rgba(49, 49, 49, 0.07) 0%,
+      rgba(49, 49, 49, 0.07) 12.5%,
+      rgba(76, 76, 76, 0.07) 12.5%,
+      rgba(76, 76, 76, 0.07) 25%,
+      rgba(102, 102, 102, 0.07) 25%,
+      rgba(102, 102, 102, 0.07) 37.5%,
+      rgba(129, 129, 129, 0.07) 37.5%,
+      rgba(129, 129, 129, 0.07) 50%,
+      rgba(155, 155, 155, 0.07) 50%,
+      rgba(155, 155, 155, 0.07) 62.5%,
+      rgba(182, 182, 182, 0.07) 62.5%,
+      rgba(182, 182, 182, 0.07) 75%,
+      rgba(208, 208, 208, 0.07) 75%,
+      rgba(208, 208, 208, 0.07) 87.5%,
+      rgba(235, 235, 235, 0.07) 87.5%,
+      rgba(235, 235, 235, 0.07) 100%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(5, 5, 5, 0.07) 0%,
+      rgba(5, 5, 5, 0.07) 12.5%,
+      rgba(39, 39, 39, 0.07) 12.5%,
+      rgba(39, 39, 39, 0.07) 25%,
+      rgba(73, 73, 73, 0.07) 25%,
+      rgba(73, 73, 73, 0.07) 37.5%,
+      rgba(107, 107, 107, 0.07) 37.5%,
+      rgba(107, 107, 107, 0.07) 50%,
+      rgba(141, 141, 141, 0.07) 50%,
+      rgba(141, 141, 141, 0.07) 62.5%,
+      rgba(175, 175, 175, 0.07) 62.5%,
+      rgba(175, 175, 175, 0.07) 75%,
+      rgba(209, 209, 209, 0.07) 75%,
+      rgba(209, 209, 209, 0.07) 87.5%,
+      rgba(243, 243, 243, 0.07) 87.5%,
+      rgba(243, 243, 243, 0.07) 100%
+    ),
+    linear-gradient(90deg, #ffffff, #ffffff);
 }
 
-.square {
-  animation-name: rotateBackground;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: alternate-reverse;
-
-  background-image: radial-gradient(circle at center center, transparent, var(--bg)),
-    linear-gradient(
-      var(--offset-deg1),
-      rgba(90, 90, 90, 0.05) 0%,
-      rgba(90, 90, 90, 0.05) 50%,
-      rgba(206, 206, 206, 0.05) 50%,
-      rgba(206, 206, 206, 0.05) 100%
+[data-theme='dark']:root {
+  background-image: repeating-linear-gradient(
+      45deg,
+      hsla(207, 0%, 63%, 0.05) 0px,
+      hsla(207, 0%, 63%, 0.05) 1px,
+      transparent 1px,
+      transparent 11px,
+      hsla(207, 0%, 63%, 0.05) 11px,
+      hsla(207, 0%, 63%, 0.05) 12px,
+      transparent 12px,
+      transparent 32px
     ),
-    linear-gradient(
-      var(--offset-deg2),
-      rgba(13, 13, 13, 0.05) 0%,
-      rgba(13, 13, 13, 0.05) 50%,
-      rgba(189, 189, 189, 0.05) 50%,
-      rgba(189, 189, 189, 0.05) 100%
+    repeating-linear-gradient(
+      0deg,
+      hsla(207, 0%, 63%, 0.05) 0px,
+      hsla(207, 0%, 63%, 0.05) 1px,
+      transparent 1px,
+      transparent 11px,
+      hsla(207, 0%, 63%, 0.05) 11px,
+      hsla(207, 0%, 63%, 0.05) 12px,
+      transparent 12px,
+      transparent 32px
     ),
-    linear-gradient(
-      var(--offset-deg3),
-      rgba(249, 249, 249, 0.05) 0%,
-      rgba(249, 249, 249, 0.05) 50%,
-      rgba(111, 111, 111, 0.05) 50%,
-      rgba(111, 111, 111, 0.05) 100%
+    repeating-linear-gradient(
+      135deg,
+      hsla(207, 0%, 63%, 0.05) 0px,
+      hsla(207, 0%, 63%, 0.05) 1px,
+      transparent 1px,
+      transparent 11px,
+      hsla(207, 0%, 63%, 0.05) 11px,
+      hsla(207, 0%, 63%, 0.05) 12px,
+      transparent 12px,
+      transparent 32px
     ),
-    linear-gradient(
-      var(--offset-deg4),
-      rgba(231, 231, 231, 0.05) 0%,
-      rgba(231, 231, 231, 0.05) 50%,
-      rgba(220, 220, 220, 0.05) 50%,
-      rgba(220, 220, 220, 0.05) 100%
+    repeating-linear-gradient(
+      90deg,
+      hsla(207, 0%, 63%, 0.05) 0px,
+      hsla(207, 0%, 63%, 0.05) 1px,
+      transparent 1px,
+      transparent 11px,
+      hsla(207, 0%, 63%, 0.05) 11px,
+      hsla(207, 0%, 63%, 0.05) 12px,
+      transparent 12px,
+      transparent 32px
     ),
-    linear-gradient(
-      var(--offset-deg5),
-      rgba(80, 80, 80, 0.05) 0%,
-      rgba(80, 80, 80, 0.05) 50%,
-      rgba(243, 243, 243, 0.05) 50%,
-      rgba(243, 243, 243, 0.05) 100%
-    ),
-    radial-gradient(circle at center center, var(--square-radial1), var(--square-radial1));
-} */
+    linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
+}

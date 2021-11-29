@@ -6,27 +6,71 @@
     <title>Yuri Tab</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link href="./fonts/dm-sans.css" rel="stylesheet" />
+    <link href="./fonts/icons.css" rel="stylesheet" />
 
-    <script src="./script/components/markbook.js"></script>
-    <!-- <script src="./script/preact.min.js"></script>
-    <script src="./script/sheet-url.js"></script>
-    <script src="./script/db-manager.js"></script>
-    <script src="./script/utils.js"></script> -->
+    <!-- <script src="./script/components/markbook.js"></script> -->
+    <!-- <script src="./script/preact.min.js"></script> -->
+    <!-- <script src="./script/sheet-url.js"></script> -->
+    <!-- <script src="./script/db-manager.js"></script> -->
+    <script src="./script/utils.js"></script>
     <script src="./script/new-tab.js"></script>
   </head>
 
   <body class="square">
     <div id="page-header-block" class="p-5">
-      <div class="p-6 card bordered w-48 float-right">
+      <label for="setting-modal" class="btn btn-circle btn-ghost float-right">
+        <span class="gg-more-vertical"></span>
+      </label>
+      <input type="checkbox" id="setting-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box">
+          <div class="flex items-center justify-start">
+            <div class="w-1/4 flex">
+              <span class="gg-dark-mode"></span>
+              <span class="label-text ml-2">Theme</span>
+            </div>
+            <div class="btn-group">
+              <input
+                type="radio"
+                name="themes"
+                data-title="light"
+                class="theme-buttons btn btn-sm"
+              />
+              <input
+                type="radio"
+                name="themes"
+                data-title="dark"
+                class="theme-buttons btn btn-sm"
+              />
+              <input
+                type="radio"
+                name="themes"
+                data-title="system"
+                class="theme-buttons btn btn-sm"
+              />
+            </div>
+          </div>
+
+          <div class="modal-action">
+            <!-- <label for="setting-modal" class="btn btn-primary">Accept</label> -->
+            <label for="setting-modal" class="btn">Close</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="p-6 card bordered w-48 float-right">
         <div class="form-control">
           <label class="cursor-pointer label">
             <span class="label-text">Dark Mode</span>
             <input id="themes-toggle" type="checkbox" checked="checked" class="toggle" />
           </label>
         </div>
-      </div>
+      </div> -->
     </div>
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
+
+    <!-- bind events -->
+    <script src="./script/events.js"></script>
   </body>
 
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css" rel="stylesheet" />
@@ -35,6 +79,4 @@
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css"
     rel="stylesheet"
   />
-
-  <script src="./script/events.js"></script>
 </html>

@@ -1,40 +1,3 @@
-const e = (selector) => document.querySelector(selector)
-
-let getBlockList = () => {
-  const bls = ['瓜', '阿门的论坛', 'MIAA-494', '紳士漫畫', '琉璃神社', '前端面试']
-  return bls
-}
-
-let parseHost = (url) => {
-  let host = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0]
-  return host.replace(/^www\./, '')
-}
-
-let parseProtocol = (url) => {
-  let protocol = url.split('://')[0]
-  return protocol.toUpperCase()
-}
-
-const flatDeep = (arr) => {
-  let flatedArray = arr.reduce((acc, val) => {
-    let o = {
-      title: val.title,
-      url: val.url,
-    }
-    let next = o
-    if (val.url === undefined) {
-      // menu.push(val.title)
-    } else {
-    }
-    if (Array.isArray(val.children)) {
-      next = flatDeep(val.children)
-    }
-    return acc.concat(next)
-  }, [])
-
-  return flatedArray
-}
-
 const genButton = (i) => {
   let http = parseProtocol(i.url)
   let host = parseHost(i.url)
@@ -43,7 +6,7 @@ const genButton = (i) => {
   // https://api.clowntool.cn/getico/?url=baidu.com
   let iconFinder = `https://icon.horse/icon/${host}`
   const buttonDom = `
-    <a href=${i.url} target='_blank'>
+    <a href=${i.url} >
       <div class="btn m-2 btn-outline w-48 flex-row flex-nowrap justify-start">
         <div class="avatar">
           <div class="rounded-full w-5 h-5 mr-2">
