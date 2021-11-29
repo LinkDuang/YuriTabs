@@ -1,32 +1,33 @@
+/* 更多按钮 */
 .gg-more-vertical {
-  transform: scale(var(--ggs,1))
- }
- 
- .gg-more-vertical,
- .gg-more-vertical::after,
- .gg-more-vertical::before {
+  transform: scale(var(--ggs, 1));
+}
+
+.gg-more-vertical,
+.gg-more-vertical::after,
+.gg-more-vertical::before {
   box-sizing: border-box;
   position: relative;
   display: block;
   width: 6px;
   height: 6px;
   border: 2px solid;
-  border-radius: 100%
- }
- 
- .gg-more-vertical::after,
- .gg-more-vertical::before {
-  content: "";
+  border-radius: 100%;
+}
+
+.gg-more-vertical::after,
+.gg-more-vertical::before {
+  content: '';
   position: absolute;
   top: 6px;
-  left: -2px
- }
- 
- .gg-more-vertical::before {
-  top: -10px
- } 
-/*  */
+  left: -2px;
+}
 
+.gg-more-vertical::before {
+  top: -10px;
+}
+
+/* 深色模式 */
 .gg-dark-mode {
   box-sizing: border-box;
   position: relative;
@@ -66,4 +67,63 @@
   height: 8px;
   right: 4px;
   top: 4px;
+}
+
+/* 关闭 */
+.gg-close {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+}
+
+.gg-close::after,
+.gg-close::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(45deg);
+  border-radius: 5px;
+  top: 8px;
+  left: 1px;
+}
+
+.gg-close::after {
+  transform: rotate(-45deg);
+}
+
+/* filter  */
+.gg-filters {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  transform: scale(var(--ggs, 1));
+  width: 19px;
+  height: 19px;
+  background: radial-gradient(circle, currentColor 26%, transparent 26%);
+}
+
+.gg-filters::after,
+.gg-filters::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border: 2px solid;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+}
+
+.gg-filters::after {
+  bottom: 0;
+  right: 0;
 }

@@ -19,12 +19,7 @@
     "storage"
   ],
   "background": {
-    "scripts": [
-      "script/sheet-url.js",
-      "script/csv.js",
-      "script/db-manager.js",
-      "script/background.js"
-    ],
+    "scripts": [],
     "persistent": false
   }
 }
