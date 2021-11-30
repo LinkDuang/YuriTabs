@@ -2,8 +2,16 @@ const e = (selector) => document.querySelector(selector)
 const es = (selector) => document.querySelectorAll(selector)
 
 const getBlockList = () => {
-  const bls = ['瓜', '阿门的论坛', 'MIAA-494', '紳士漫畫', '琉璃神社', '前端面试']
-  return bls
+  const bls = localStorage.getItem('blockList')
+  if (bls === null) {
+    return []
+  }
+  try {
+    let r = JSON.parse(bls)
+    return Array.isArray(r) ? r : []
+  } catch (e) {
+    return []
+  }
 }
 
 const parseHost = (url) => {

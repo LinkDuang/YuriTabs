@@ -9,9 +9,7 @@
 //     }
 // });
 
-
 // 初始化数据，localStorage
-
 
 const dataInit = () => {
   let theme = localStorage.getItem('theme')
@@ -52,9 +50,20 @@ const keyboardEvents = () => {
   })
 }
 
+// 拷贝
+const copyButtonsEvents = () => {
+  es('.copyButton').forEach((i) => {
+    i.addEventListener('click', () => {
+      let v = i.dataset.value
+      navigator.clipboard.writeText(v)
+    })
+  })
+}
+
 const __register_events = () => {
   dataInit()
   themeEvents()
+  copyButtonsEvents()
   keyboardEvents()
 }
 __register_events()

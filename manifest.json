@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Yuri Tabs",
-  "description": "serdes",
+  "description": "将书签映射到「新标签页」，从狭窄的书签栏中解放。 Map bookmarks to the 'new tab page', free from the narrow bookmark bar.",
   "action": {
     "default_icon": "icon48.png"
   },
@@ -9,7 +9,7 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "version": "0.1",
+  "version": "0.0.1",
   "chrome_url_overrides": {
     "newtab": "new-tab.html"
   },
@@ -17,9 +17,5 @@
     "bookmarks",
     "alarms",
     "storage"
-  ],
-  "background": {
-    "scripts": [],
-    "persistent": false
-  }
+  ]
 }
