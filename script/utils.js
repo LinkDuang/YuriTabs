@@ -55,3 +55,29 @@ const setTheme = (theme) => {
   }
   e('html').dataset.theme = theme
 }
+
+const getCardWidth = () => {
+  let widthDict = {
+    1: 'w-40',
+    2: 'w-44',
+    3: 'w-48',
+    4: 'w-52',
+    5: 'w-56',
+  }
+  let cardWidth = localStorage.getItem('cardWidth')
+  if (!cardWidth === null || widthDict[cardWidth] === undefined) {
+    return widthDict['3']
+  }
+  return widthDict[cardWidth]
+}
+
+const genRangeText = (k) => {
+  let rangeDict = {
+    1: '10 rem',
+    2: '11 rem',
+    3: '12 rem',
+    4: '13 rem',
+    5: '14 rem',
+  }
+  return rangeDict[k]
+}

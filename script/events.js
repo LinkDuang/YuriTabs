@@ -23,6 +23,16 @@ const dataInit = () => {
     setTheme('dark')
     e(`input[data-title='dark']`).checked = true
   }
+
+  let cardWidth = localStorage.getItem('cardWidth')
+  console.log('读取并设置', cardWidth)
+  if (cardWidth === null) {
+    e('#widthRange').value = 3
+    e('#widthRangeValue').innerHTML = genRangeText(3)
+  } else {
+    e('#widthRange').value = cardWidth
+    e('#widthRangeValue').innerHTML = genRangeText(cardWidth)
+  }
 }
 
 // 绑定主题开关（缺少初始化和数据本地储存）
@@ -50,7 +60,7 @@ const keyboardEvents = () => {
   })
 }
 
-// 拷贝
+// 拷贝按钮事件
 const copyButtonsEvents = () => {
   es('.copyButton').forEach((i) => {
     i.addEventListener('click', () => {
@@ -60,10 +70,23 @@ const copyButtonsEvents = () => {
   })
 }
 
+// 设置宽度范围事件
+const setWidthRangeEvents = () => {
+  let range = e('#widthRange')
+  range.addEventListener('input', (event) => {
+    let value = event.target.value
+    e('#widthRange').value = value
+    e('#widthRangeValue').innerHTML = genRangeText(value)
+    localStorage.setItem('cardWidth', value)
+    __genTabs()
+  })
+}
+
 const __register_events = () => {
   dataInit()
   themeEvents()
   copyButtonsEvents()
+  setWidthRangeEvents()
   keyboardEvents()
 }
 __register_events()

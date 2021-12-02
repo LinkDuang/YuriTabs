@@ -15,45 +15,40 @@ body {
 }
 
 [data-theme='light']:root {
-  background-image: linear-gradient(
+  background-image: repeating-linear-gradient(
+      90deg,
+      hsla(298, 16%, 68%, 0.06) 0px,
+      hsla(298, 16%, 68%, 0.06) 1px,
+      transparent 1px,
+      transparent 21px,
+      hsla(298, 16%, 68%, 0.06) 21px,
+      hsla(298, 16%, 68%, 0.06) 22px,
+      transparent 22px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsla(298, 16%, 68%, 0.06) 0px,
+      hsla(298, 16%, 68%, 0.06) 1px,
+      transparent 1px,
+      transparent 21px,
+      hsla(298, 16%, 68%, 0.06) 21px,
+      hsla(298, 16%, 68%, 0.06) 22px,
+      transparent 22px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
       135deg,
-      rgba(49, 49, 49, 0.07) 0%,
-      rgba(49, 49, 49, 0.07) 12.5%,
-      rgba(76, 76, 76, 0.07) 12.5%,
-      rgba(76, 76, 76, 0.07) 25%,
-      rgba(102, 102, 102, 0.07) 25%,
-      rgba(102, 102, 102, 0.07) 37.5%,
-      rgba(129, 129, 129, 0.07) 37.5%,
-      rgba(129, 129, 129, 0.07) 50%,
-      rgba(155, 155, 155, 0.07) 50%,
-      rgba(155, 155, 155, 0.07) 62.5%,
-      rgba(182, 182, 182, 0.07) 62.5%,
-      rgba(182, 182, 182, 0.07) 75%,
-      rgba(208, 208, 208, 0.07) 75%,
-      rgba(208, 208, 208, 0.07) 87.5%,
-      rgba(235, 235, 235, 0.07) 87.5%,
-      rgba(235, 235, 235, 0.07) 100%
+      hsla(298, 16%, 68%, 0.06) 0px,
+      hsla(298, 16%, 68%, 0.06) 1px,
+      transparent 1px,
+      transparent 21px,
+      hsla(298, 16%, 68%, 0.06) 21px,
+      hsla(298, 16%, 68%, 0.06) 22px,
+      transparent 22px,
+      transparent 72px
     ),
-    linear-gradient(
-      45deg,
-      rgba(5, 5, 5, 0.07) 0%,
-      rgba(5, 5, 5, 0.07) 12.5%,
-      rgba(39, 39, 39, 0.07) 12.5%,
-      rgba(39, 39, 39, 0.07) 25%,
-      rgba(73, 73, 73, 0.07) 25%,
-      rgba(73, 73, 73, 0.07) 37.5%,
-      rgba(107, 107, 107, 0.07) 37.5%,
-      rgba(107, 107, 107, 0.07) 50%,
-      rgba(141, 141, 141, 0.07) 50%,
-      rgba(141, 141, 141, 0.07) 62.5%,
-      rgba(175, 175, 175, 0.07) 62.5%,
-      rgba(175, 175, 175, 0.07) 75%,
-      rgba(209, 209, 209, 0.07) 75%,
-      rgba(209, 209, 209, 0.07) 87.5%,
-      rgba(243, 243, 243, 0.07) 87.5%,
-      rgba(243, 243, 243, 0.07) 100%
-    ),
-    linear-gradient(90deg, #ffffff, #ffffff);
+    linear-gradient(90deg, hsl(275, 3%, 97%), hsl(275, 3%, 97%));
 }
 
 [data-theme='dark']:root {
@@ -103,4 +98,3 @@ body {
     ),
     linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
 }
-

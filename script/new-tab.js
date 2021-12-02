@@ -3,7 +3,7 @@ const genButton = (i) => {
   let iconFinder = `https://icon.horse/icon/${host}`
   const buttonDom = `
     <a href=${i.url} >
-      <div class="btn m-2 btn-outline w-48 flex-row flex-nowrap justify-start p-2">
+      <div class="btn w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
         <div class="avatar">
           <div class="rounded-full w-5 h-5 mr-2">
             <img src="${iconFinder}" loading="lazy"  />
@@ -19,7 +19,6 @@ const genButton = (i) => {
 }
 
 const __genTabs = () => {
-  // console.log(navigator.clipboard)
   const container = e('#bookmarks-tree-container')
   container.innerHTML = ''
   let book = chrome.bookmarks
@@ -32,10 +31,10 @@ const __genTabs = () => {
       let filted = marks.filter(
         (i) => !blockList.some((block) => i.title.includes(block) || i.url.includes(block)),
       )
-
       let buttonGroup = filted.map((i) => genButton(i))
+      let cw = getCardWidth()
       let laneDom = `
-        <div class="lane w-52">
+        <div class="lane m-2 ${cw}">
           <div class="pl-3 card-title">
             ${lane.title}
           </div>
