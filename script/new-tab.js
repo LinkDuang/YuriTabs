@@ -18,6 +18,27 @@ const genButton = (i) => {
   return buttonDom
 }
 
+const genLaneWithLaneData = (rawLane) => {
+  let marks = flatDeep(rawLane.children)
+  let blockList = getBlockList()
+  let filted = marks.filter(
+    (i) => !blockList.some((block) => i.title.includes(block) || i.url.includes(block)),
+  )
+  let buttonGroup = filted.map((i) => genButton(i))
+  let cw = getCardWidth()
+  let laneDom = `
+    <div class="lane m-2 ${cw}">
+      <div class="pl-3 card-title">
+        ${rawLane.title}
+      </div>
+      <div class="">
+        ${buttonGroup.join('')}
+      </div>
+    </div>
+  `
+  return laneDom
+}
+
 const __genTabs = () => {
   const container = e('#bookmarks-tree-container')
   container.innerHTML = ''
@@ -25,26 +46,23 @@ const __genTabs = () => {
   book.getTree((tree) => {
     let page = tree[0].children[0]
     let pool = page.children
+    let other = {
+      children: [],
+      title: '尚未整理',
+    }
     pool.forEach((lane) => {
-      let marks = flatDeep(lane.children)
-      let blockList = getBlockList()
-      let filted = marks.filter(
-        (i) => !blockList.some((block) => i.title.includes(block) || i.url.includes(block)),
-      )
-      let buttonGroup = filted.map((i) => genButton(i))
-      let cw = getCardWidth()
-      let laneDom = `
-        <div class="lane m-2 ${cw}">
-          <div class="pl-3 card-title">
-            ${lane.title}
-          </div>
-          <div class="">
-            ${buttonGroup.join('')}
-          </div>
-        </div>
-      `
+      if (!lane.children) {
+        other.children.push(lane)
+        return
+      }
+      let laneDom = genLaneWithLaneData(lane)
       container.innerHTML += laneDom
     })
+    if (other.children.length > 0) {
+      let laneDom = genLaneWithLaneData(other)
+      container.innerHTML += laneDom
+      console.log('other', other)
+    }
   })
 }
 

@@ -1,7 +1,7 @@
 html,
 body {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 body {
@@ -12,6 +12,11 @@ body {
 
 #page-header-block {
   height: 200px;
+}
+
+:root {
+  width: fit-content;
+  height: fit-content;
 }
 
 [data-theme='light']:root {
@@ -96,5 +101,39 @@ body {
       transparent 12px,
       transparent 32px
     ),
-    linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
+    linear-gradient(to right, rgb(17, 17, 17), rgb(66, 66, 66));
+  background-repeat: no-repeat;
+}
+/* 
+[data-theme='light'] {
+  --textColor: #000;
+}
+
+[data-theme='dark'] {
+  --textColor: #fff;
+} */
+
+/* .neon-text {
+  --textColor: #fff;
+
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
+    0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+} */
+
+@keyframes neonBlue {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.neon-text{
+  position: absolute;
+}
+[data-theme='dark'] .neon-text {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff, 0 0 35px #228dff,
+    0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  animation: neonBlue 0.2s ease-in-out 3;
 }
