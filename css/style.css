@@ -1,124 +1,7 @@
-html,
-body {
-  min-height: 100%;
-  min-width: 100%;
-}
-
-body {
-  margin: -1000px;
-  padding: 0px;
-  height: auto;
-}
 
 #page-header-block {
   height: 200px;
 }
-
-:root {
-  width: fit-content;
-  height: fit-content;
-}
-
-[data-theme='light']:root {
-  background-image: repeating-linear-gradient(
-      90deg,
-      hsla(298, 16%, 68%, 0.06) 0px,
-      hsla(298, 16%, 68%, 0.06) 1px,
-      transparent 1px,
-      transparent 21px,
-      hsla(298, 16%, 68%, 0.06) 21px,
-      hsla(298, 16%, 68%, 0.06) 22px,
-      transparent 22px,
-      transparent 72px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(298, 16%, 68%, 0.06) 0px,
-      hsla(298, 16%, 68%, 0.06) 1px,
-      transparent 1px,
-      transparent 21px,
-      hsla(298, 16%, 68%, 0.06) 21px,
-      hsla(298, 16%, 68%, 0.06) 22px,
-      transparent 22px,
-      transparent 72px
-    ),
-    repeating-linear-gradient(
-      135deg,
-      hsla(298, 16%, 68%, 0.06) 0px,
-      hsla(298, 16%, 68%, 0.06) 1px,
-      transparent 1px,
-      transparent 21px,
-      hsla(298, 16%, 68%, 0.06) 21px,
-      hsla(298, 16%, 68%, 0.06) 22px,
-      transparent 22px,
-      transparent 72px
-    ),
-    linear-gradient(90deg, hsl(275, 3%, 97%), hsl(275, 3%, 97%));
-}
-
-[data-theme='dark']:root {
-  background-image: repeating-linear-gradient(
-      45deg,
-      hsla(207, 0%, 63%, 0.05) 0px,
-      hsla(207, 0%, 63%, 0.05) 1px,
-      transparent 1px,
-      transparent 11px,
-      hsla(207, 0%, 63%, 0.05) 11px,
-      hsla(207, 0%, 63%, 0.05) 12px,
-      transparent 12px,
-      transparent 32px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(207, 0%, 63%, 0.05) 0px,
-      hsla(207, 0%, 63%, 0.05) 1px,
-      transparent 1px,
-      transparent 11px,
-      hsla(207, 0%, 63%, 0.05) 11px,
-      hsla(207, 0%, 63%, 0.05) 12px,
-      transparent 12px,
-      transparent 32px
-    ),
-    repeating-linear-gradient(
-      135deg,
-      hsla(207, 0%, 63%, 0.05) 0px,
-      hsla(207, 0%, 63%, 0.05) 1px,
-      transparent 1px,
-      transparent 11px,
-      hsla(207, 0%, 63%, 0.05) 11px,
-      hsla(207, 0%, 63%, 0.05) 12px,
-      transparent 12px,
-      transparent 32px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      hsla(207, 0%, 63%, 0.05) 0px,
-      hsla(207, 0%, 63%, 0.05) 1px,
-      transparent 1px,
-      transparent 11px,
-      hsla(207, 0%, 63%, 0.05) 11px,
-      hsla(207, 0%, 63%, 0.05) 12px,
-      transparent 12px,
-      transparent 32px
-    ),
-    linear-gradient(to right, rgb(17, 17, 17), rgb(66, 66, 66));
-  background-repeat: no-repeat;
-}
-/* 
-[data-theme='light'] {
-  --textColor: #000;
-}
-
-[data-theme='dark'] {
-  --textColor: #fff;
-} */
-
-/* .neon-text {
-  --textColor: #fff;
-
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
-    0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
-} */
 
 @keyframes neonBlue {
   from {
@@ -129,11 +12,31 @@ body {
   }
 }
 
-.neon-text{
+[data-theme='dark'] .hola-container {
+  font-weight: 200;
+}
+
+.neon-text {
   position: absolute;
 }
 [data-theme='dark'] .neon-text {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff, 0 0 35px #228dff,
     0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
-  animation: neonBlue 0.2s ease-in-out 3;
+  animation: neonBlue 0.15s ease-in-out 3;
+}
+
+[data-theme='dark'] .link-item {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-theme='light'] .link-item:hover {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+.lane {
+  opacity: 0.5;
+}
+
+.lane:hover {
+  opacity: 1;
 }

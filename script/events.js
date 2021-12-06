@@ -9,56 +9,6 @@
 //     }
 // });
 
-const initTheme = () => {
-  let theme = localStorage.getItem('theme')
-  if (theme === null || theme === 'system') {
-    setTheme('system')
-    e(`input[data-value='system']`).checked = true
-  } else if (theme === 'light') {
-    e(`input[data-value='light']`).checked = true
-    setTheme('light')
-  } else if (theme === 'dark') {
-    setTheme('dark')
-    e(`input[data-value='dark']`).checked = true
-  }
-}
-
-const initHola = () => {
-  let holaText = localStorage.getItem('hola')
-  if (holaText !== null) {
-    e('#hola-b').innerHTML = holaText
-    e('#hola-f').innerHTML = holaText
-    e('#hola-input').value = holaText
-  }
-
-  let neonToggle = localStorage.getItem('neonToggle')
-  e('#neon-toggle').checked = true
-
-  if (neonToggle === 'false') {
-    e('#hola-b').classList.remove('neon-text')
-    e('#neon-toggle').checked = false
-  }
-}
-
-const initCardWidth = () => {
-  // card width
-  let cardWidth = localStorage.getItem('cardWidth')
-  if (cardWidth === null) {
-    e('#widthRange').value = 3
-    e('#widthRangeValue').innerHTML = genRangeText(3)
-  } else {
-    e('#widthRange').value = cardWidth
-    e('#widthRangeValue').innerHTML = genRangeText(cardWidth)
-  }
-}
-
-// 初始化数据，localStorage
-const dataInit = () => {
-  initTheme()
-  initHola()
-  initCardWidth()
-}
-
 // 绑定主题开关（缺少初始化和数据本地储存）
 const themeEvents = () => {
   let buttons = es('.theme-buttons')
@@ -95,13 +45,25 @@ const copyButtonsEvents = () => {
 }
 
 // 设置宽度范围事件
-const setWidthRangeEvents = () => {
+const setCardWidthEvents = () => {
   let range = e('#widthRange')
   range.addEventListener('input', (event) => {
     let value = event.target.value
     e('#widthRange').value = value
-    e('#widthRangeValue').innerHTML = genRangeText(value)
+    e('#widthRangeValue').innerHTML = genCardWidthValue(value)
     localStorage.setItem('cardWidth', value)
+    __genTabs()
+  })
+}
+
+// 设置卡片间隔事件
+const setCardSpaceEvents = () => {
+  let range = e('#cardSpace')
+  range.addEventListener('input', (event) => {
+    let value = event.target.value
+    e('#cardSpace').value = value
+    e('#cardSpaceValue').innerHTML = genCardSpaceValue(value)
+    localStorage.setItem('cardSpace', value)
     __genTabs()
   })
 }
@@ -128,10 +90,10 @@ const holaEvents = () => {
 }
 
 const __register_events = () => {
-  dataInit()
   themeEvents()
   copyButtonsEvents()
-  setWidthRangeEvents()
+  setCardWidthEvents()
+  setCardSpaceEvents()
   holaEvents()
   keyboardEvents()
 }

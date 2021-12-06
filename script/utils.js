@@ -71,7 +71,24 @@ const getCardWidth = () => {
   return widthDict[cardWidth]
 }
 
-const genRangeText = (k) => {
+const getCardSpace = () => {
+  let spaceDict = {
+    1: 'mx-2',
+    2: 'mx-2.5',
+    3: 'mx-3',
+    4: 'mx-3.5',
+    5: 'mx-4',
+  }
+  let cardSpace = localStorage.getItem('cardSpace')
+  if (!cardSpace === null || spaceDict[cardSpace] === undefined) {
+    return spaceDict['3']
+  }
+  return spaceDict[cardSpace]
+}
+
+
+
+const genCardWidthValue = (k) => {
   let rangeDict = {
     1: '10 rem',
     2: '11 rem',
@@ -80,4 +97,15 @@ const genRangeText = (k) => {
     5: '14 rem',
   }
   return rangeDict[k]
+}
+
+const genCardSpaceValue = (k) => {
+  let spaceDict = {
+    1: '0.5 rem',
+    2: '0.625 rem',
+    3: '0.75 rem',
+    4: '0.875 rem',
+    5: '1 rem',
+  }
+  return spaceDict[k]
 }

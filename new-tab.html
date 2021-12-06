@@ -3,102 +3,118 @@
   <head>
     <meta charset="utf-8" />
     <title>Yuri Tab</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/backgounds.css" rel="stylesheet" />
     <link href="./fonts/dm-sans.css" rel="stylesheet" />
     <link href="./fonts/icons.css" rel="stylesheet" />
 
-    <!-- <script src="./script/db-manager.js"></script> -->
     <script src="./script/utils.js"></script>
     <script src="./script/new-tab.js"></script>
   </head>
 
   <body class="square">
-    <div id="page-header-block" class="">
-      <div class="h-full w-screen flex items-center justify-center text-5xl select-none">
-        <span class="neon-text" id="hola-b">Hola Yuri</span>
-        <span class="absolute" id="hola-f">Hola Yuri</span>
-      </div>
-      <label for="setting-modal" class="btn btn-circle btn-ghost fixed right-5 top-5">
-        <i class="gg-bulb"></i>
-      </label>
-      <input type="checkbox" id="setting-modal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box p-4 pl-6">
-          <div class="modal-header flex items-center mb-10">
-            <div class="text-3xl">Setting</div>
-            <label for="setting-modal" class="btn btn-circle btn-ghost ml-auto">
-              <i class="gg-close"></i>
+    <!-- Setting Modal -->
+    <input type="checkbox" id="setting-modal" class="modal-toggle" />
+    <div class="modal fixed top-0 left-0">
+      <div class="modal-box p-4 pl-6">
+        <div class="modal-header flex items-center mb-10">
+          <div class="text-3xl">设置</div>
+          <label for="setting-modal" class="btn btn-circle btn-ghost ml-auto">
+            <i class="gg-close"></i>
+          </label>
+        </div>
+
+        <div class="flex items-center justify-start h-16">
+          <div class="w-1/4 flex items-center">
+            <i class="gg-pen"></i>
+            <span class="label-text ml-2">问候语</span>
+          </div>
+
+          <div class="w-3/4 flex items-items">
+            <input
+              type="text"
+              placeholder="例如: Hola Yuri"
+              class="input input-bordered h-10 w-full"
+              id="hola-input"
+            />
+          </div>
+        </div>
+        <div class="flex items-center justify-start h-16">
+          <div class="w-1/4 flex items-center">
+            <i class="gg-display-fullwidth"></i>
+            <span class="label-text ml-2">卡片宽度</span>
+          </div>
+          <div class="w-2/4">
+            <label for="">
+              <span id="widthRangeValue"></span>
+              <input id="widthRange" type="range" max="5" min="1" step="1" class="range" />
             </label>
           </div>
-
-          <div class="flex items-center justify-start h-16">
-            <div class="w-1/4 flex items-center">
-              <i class="gg-pen"></i>
-              <span class="label-text ml-2">问候语</span>
-            </div>
-
-            <div class="w-3/4 flex items-items">
-              <input
-                type="text"
-                placeholder="例如: Hola Yuri"
-                class="input input-bordered h-10 w-full"
-                id="hola-input"
-              />
-
-              <div class="card h-10 ml-auto flex-shrink-0">
-                <div class="form-control">
-                  <label class="cursor-pointer label pr-0">
-                    <span class="label-text ml-2 mr-2">夜间霓虹</span>
-                    <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
-                  </label>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="flex items-center justify-start h-16">
+          <div class="w-1/4 flex items-center">
+            <i class="gg-display-spacing"></i>
+            <span class="label-text ml-2">卡片间距</span>
           </div>
-          <div class="flex items-center justify-start h-16">
-            <div class="w-1/4 flex items-center">
-              <i class="gg-display-fullwidth"></i>
-              <span class="label-text ml-2">卡片宽度</span>
-            </div>
-            <div class="w-2/4">
-              <label for="">
-                <span id="widthRangeValue"></span>
-                <input id="widthRange" type="range" max="5" min="1" step="1" class="range" />
-              </label>
-            </div>
+          <div class="w-2/4">
+            <label for="">
+              <span id="cardSpaceValue"></span>
+              <input id="cardSpace" type="range" max="5" min="1" step="1" class="range" />
+            </label>
           </div>
+        </div>
 
-          <div class="flex items-center justify-start h-16">
-            <div class="w-1/4 flex">
-              <i class="gg-dark-mode"></i>
-              <span class="label-text ml-2">主题色</span>
-            </div>
-            <div class="btn-group">
-              <input
-                type="radio"
-                name="themes"
-                data-title="🌝 亮色"
-                data-value="light"
-                class="theme-buttons btn btn-sm"
-              />
-              <input
-                type="radio"
-                name="themes"
-                data-title="🌚 深色"
-                data-value="dark"
-                class="theme-buttons btn btn-sm"
-              />
-              <input
-                type="radio"
-                name="themes"
-                data-title="跟随系统"
-                data-value="system"
-                class="theme-buttons btn btn-sm"
-              />
-            </div>
+        <div class="flex items-center justify-start h-16">
+          <div class="w-1/4 flex">
+            <i class="gg-dark-mode"></i>
+            <span class="label-text ml-2">主题色</span>
+          </div>
+          <div class="btn-group">
+            <input
+              type="radio"
+              name="themes"
+              data-title="🌝 亮色"
+              data-value="light"
+              class="theme-buttons btn btn-sm"
+            />
+            <input
+              type="radio"
+              name="themes"
+              data-title="🌚 深色"
+              data-value="dark"
+              class="theme-buttons btn btn-sm"
+            />
+            <input
+              type="radio"
+              name="themes"
+              data-title="跟随系统"
+              data-value="system"
+              class="theme-buttons btn btn-sm"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-start h-16">
+          <div class="w-1/4 flex items-center">
+            <i class="gg-display-fullwidth"></i>
+            <span class="label-text ml-2">其他设置</span>
           </div>
 
-          <div class="flex items-start justify-start mt-5">
+          <div class="w-3/4 flex">
+            <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
+              <span class="label-text text-xs mb-1">霓虹灯</span>
+              <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
+            </label>
+
+            <!-- <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
+                <span class="label-text text-xs mb-1">低对比</span>
+                <input id="border-color-toggle" type="checkbox" checked="checked" class="toggle" />
+              </label> -->
+          </div>
+        </div>
+
+        <!-- 联系，这一栏先不开放 -->
+        <!-- <div class="flex items-start justify-start mt-5">
             <div class="w-1/4 flex items-center">
               <i class="gg-boy"></i>
               <span class="label-text ml-2">联系</span>
@@ -141,10 +157,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <!-- Filter 先不开放 -->
-          <!-- <div class="flex items-center justify-start h-12">
+        <!-- Filter 先不开放 -->
+        <!-- <div class="flex items-center justify-start h-12">
             <div tabindex="0" class="collapse w-full collapse-arrow">
               <div class="collapse-title text-xl font-medium flex pl-0">
                 <span class="gg-filters"></span>
@@ -155,11 +171,23 @@
               </div>
             </div>
           </div> -->
-        </div>
       </div>
+    </div>
+
+    <div id="page-header-block" class="">
+      <div
+        class="hola-container h-full w-screen flex items-center justify-center text-5xl select-none"
+      >
+        <span class="neon-text" id="hola-b">Hola Yuri</span>
+        <span class="absolute" id="hola-f">Hola Yuri</span>
+      </div>
+      <label for="setting-modal" class="btn btn-circle btn-ghost fixed right-5 top-5">
+        <i class="gg-bulb"></i>
+      </label>
     </div>
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
+    <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
   </body>
 
