@@ -1,6 +1,14 @@
 const e = (selector) => document.querySelector(selector)
 const es = (selector) => document.querySelectorAll(selector)
 
+const insertTemplate = (callback) => {
+  // 这里本来不用这么扭曲，但是现在找不到好的插件可以用
+  // 如果不使用 .innerHTML = xx 这种写法的话，
+  // html 模板字符串就没有高亮功能
+  // 后期找到可靠的插件可以替代这种写法
+  callback(e('#templates'))
+}
+
 const getBlockList = () => {
   const bls = localStorage.getItem('blockList')
   if (bls === null) {
@@ -85,8 +93,6 @@ const getCardSpace = () => {
   }
   return spaceDict[cardSpace]
 }
-
-
 
 const genCardWidthValue = (k) => {
   let rangeDict = {

@@ -7,12 +7,14 @@
     <link href="./css/backgounds.css" rel="stylesheet" />
     <link href="./fonts/dm-sans.css" rel="stylesheet" />
     <link href="./fonts/icons.css" rel="stylesheet" />
-
     <script src="./script/utils.js"></script>
-    <script src="./script/new-tab.js"></script>
   </head>
 
   <body class="square">
+    <div id="templates"></div>
+
+    <header-block></header-block>
+
     <!-- Setting Modal -->
     <input type="checkbox" id="setting-modal" class="modal-toggle" />
     <div class="modal fixed top-0 left-0">
@@ -24,75 +26,10 @@
           </label>
         </div>
 
-        <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex items-center">
-            <i class="gg-pen"></i>
-            <span class="label-text ml-2">问候语</span>
-          </div>
-
-          <div class="w-3/4 flex items-items">
-            <input
-              type="text"
-              placeholder="例如: Hola Yuri"
-              class="input input-bordered h-10 w-full"
-              id="hola-input"
-            />
-          </div>
-        </div>
-        <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex items-center">
-            <i class="gg-display-fullwidth"></i>
-            <span class="label-text ml-2">卡片宽度</span>
-          </div>
-          <div class="w-2/4">
-            <label for="">
-              <span id="widthRangeValue"></span>
-              <input id="widthRange" type="range" max="5" min="1" step="1" class="range" />
-            </label>
-          </div>
-        </div>
-        <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex items-center">
-            <i class="gg-display-spacing"></i>
-            <span class="label-text ml-2">卡片间距</span>
-          </div>
-          <div class="w-2/4">
-            <label for="">
-              <span id="cardSpaceValue"></span>
-              <input id="cardSpace" type="range" max="5" min="1" step="1" class="range" />
-            </label>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex">
-            <i class="gg-dark-mode"></i>
-            <span class="label-text ml-2">主题色</span>
-          </div>
-          <div class="btn-group">
-            <input
-              type="radio"
-              name="themes"
-              data-title="🌝 亮色"
-              data-value="light"
-              class="theme-buttons btn btn-sm"
-            />
-            <input
-              type="radio"
-              name="themes"
-              data-title="🌚 深色"
-              data-value="dark"
-              class="theme-buttons btn btn-sm"
-            />
-            <input
-              type="radio"
-              name="themes"
-              data-title="跟随系统"
-              data-value="system"
-              class="theme-buttons btn btn-sm"
-            />
-          </div>
-        </div>
+        <setter-hola-input></setter-hola-input>
+        <setter-card-width></setter-card-width>
+        <setter-card-space></setter-card-space>
+        <setter-theme></setter-theme>
 
         <div class="flex items-center justify-start h-16">
           <div class="w-1/4 flex items-center">
@@ -105,88 +42,20 @@
               <span class="label-text text-xs mb-1">霓虹灯</span>
               <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
             </label>
-
-            <!-- <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
-                <span class="label-text text-xs mb-1">低对比</span>
-                <input id="border-color-toggle" type="checkbox" checked="checked" class="toggle" />
-              </label> -->
           </div>
         </div>
-
-        <!-- 联系，这一栏先不开放 -->
-        <!-- <div class="flex items-start justify-start mt-5">
-            <div class="w-1/4 flex items-center">
-              <i class="gg-boy"></i>
-              <span class="label-text ml-2">联系</span>
-            </div>
-
-            <div class="w-3/4 flex items-start flex-col">
-              <div class="alert alert-sm w-full h-8 rounded-lg pr-0">
-                <div class="flex-1">
-                  <label class="mx-3">Email: djw7569@gmail.com</label>
-                </div>
-                <div class="flex-none">
-                  <a type="email" class="btn btn-outline btn-sm" href="mailto:djw7569@gmail.com">
-                    <span class="gg-mail mr-2"></span>
-                    Send Email
-                  </a>
-                </div>
-              </div>
-
-              <div class="alert mt-2 alert-sm w-full h-8 rounded-lg pr-0">
-                <div class="flex-1">
-                  <label class="mx-3">QQ: 479194907</label>
-                </div>
-                <div class="flex-none">
-                  <button data-value="479194907" class="copyButton btn btn-outline btn-sm">
-                    <i class="gg-copy mr-2"></i>
-                    Copy
-                  </button>
-                </div>
-              </div>
-
-              <div class="alert mt-2 alert-sm w-full h-8 rounded-lg pr-0">
-                <div class="flex-1">
-                  <label class="mx-3">Wechat: ulysses1970</label>
-                </div>
-                <div class="flex-none">
-                  <button data-value="ulysses1970" class="copyButton btn btn-outline btn-sm">
-                    <i class="gg-copy mr-2"></i>
-                    Copy
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-        <!-- Filter 先不开放 -->
-        <!-- <div class="flex items-center justify-start h-12">
-            <div tabindex="0" class="collapse w-full collapse-arrow">
-              <div class="collapse-title text-xl font-medium flex pl-0">
-                <span class="gg-filters"></span>
-                <span class="label-text ml-2">Filter</span>
-              </div>
-              <div class="collapse-content">
-                <p>这里填入的文本会从页面上过滤掉</p>
-              </div>
-            </div>
-          </div> -->
       </div>
     </div>
 
-    <div id="page-header-block" class="">
-      <div
-        class="hola-container h-full w-screen flex items-center justify-center text-5xl select-none"
-      >
-        <span class="neon-text" id="hola-b">Hola Yuri</span>
-        <span class="absolute" id="hola-f">Hola Yuri</span>
-      </div>
-      <label for="setting-modal" class="btn btn-circle btn-ghost fixed right-5 top-5">
-        <i class="gg-bulb"></i>
-      </label>
-    </div>
+    <!-- tree -->
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
+    <script src="./script/components/header-block.js"></script>
+    <script src="./script/components/setter-hola-input.js"></script>
+    <script src="./script/components/setter-card-width.js"></script>
+    <script src="./script/components/setter-card-space.js"></script>
+    <script src="./script/components/setter-theme.js"></script>
+    <script src="./script/new-tab.js"></script>
     <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
   </body>
