@@ -37,9 +37,11 @@ insertTemplate((dom) => {
 class ThemePicker extends HTMLElement {
   constructor() {
     super()
+    // 构造
     let templateElem = e('#template-theme-picker')
     let content = templateElem.content.cloneNode(true)
 
+    // 初始化
     let theme = localStorage.getItem('theme')
     if (theme === null || theme === 'system') {
       setTheme('system')
@@ -51,11 +53,9 @@ class ThemePicker extends HTMLElement {
       setTheme('dark')
       content.querySelector(`input[data-value='dark']`).checked = true
     }
-    this.appendChild(content)
-  }
 
-  connectedCallback() {
-    let buttons = this.querySelectorAll('.theme-buttons')
+    // 监听器
+    let buttons = content.querySelectorAll('.theme-buttons')
     buttons.forEach((i) => {
       i.addEventListener('change', (event) => {
         let theme = event.target.dataset.value
@@ -63,7 +63,11 @@ class ThemePicker extends HTMLElement {
         localStorage.setItem('theme', theme)
       })
     })
+
+    this.appendChild(content)
   }
+
+  connectedCallback() {}
 }
 
 customElements.define('setter-theme', ThemePicker)

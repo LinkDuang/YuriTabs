@@ -20,31 +20,36 @@ insertTemplate((dom) => {
 class CardWidth extends HTMLElement {
   constructor() {
     super()
+    // 构造
     let templateElem = e('#template-card-width')
     let content = templateElem.content.cloneNode(true)
 
+    // 初始化
+    let wr = content.querySelector('#widthRange')
+    let wrv = content.querySelector('#widthRangeValue')
     let cardWidth = localStorage.getItem('cardWidth')
     if (cardWidth === null) {
-      content.querySelector('#widthRange').value = 3
-      content.querySelector('#widthRangeValue').innerHTML = genCardWidthValue(3)
+      wr.value = 3
+      wrv.innerHTML = genCardWidthValue(3)
     } else {
-      content.querySelector('#widthRange').value = cardWidth
-      content.querySelector('#widthRangeValue').innerHTML = genCardWidthValue(cardWidth)
+      wr.value = cardWidth
+      wrv.innerHTML = genCardWidthValue(cardWidth)
     }
+
+    // 监听器
+    wr.addEventListener('input', (event) => {
+      let value = event.target.value
+      wr.value = value
+      wrv.innerHTML = genCardWidthValue(value)
+      localStorage.setItem('cardWidth', value)
+      __genTabs()
+    })
+
     this.appendChild(content)
   }
 
   // 首次被插入 DOM 时被调用
-  connectedCallback() {
-    let range = this.querySelector('#widthRange')
-    range.addEventListener('input', (event) => {
-      let value = event.target.value
-      this.querySelector('#widthRange').value = value
-      this.querySelector('#widthRangeValue').innerHTML = genCardWidthValue(value)
-      localStorage.setItem('cardWidth', value)
-      __genTabs()
-    })
-  }
+  connectedCallback() {}
 }
 
 customElements.define('setter-card-width', CardWidth)

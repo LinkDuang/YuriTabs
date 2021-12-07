@@ -23,25 +23,29 @@ insertTemplate((dom) => {
 class HolaInput extends HTMLElement {
   constructor() {
     super()
+    // 构造
     let templateElem = e('#template-hola-input')
     let content = templateElem.content.cloneNode(true)
 
+    // 初始化
+    let input = content.querySelector('#hola-input')
     let holaText = localStorage.getItem('hola')
     if (holaText !== null) {
-      content.querySelector('#hola-input').value = holaText
+      input.value = holaText
     }
-    this.appendChild(content)
-  }
 
-  connectedCallback() {
-    let input = this.querySelector('#hola-input')
+    // 监听
     input.addEventListener('input', (event) => {
       let v = event.target.value
       localStorage.setItem('hola', v)
       e('#hola-b').innerHTML = v
       e('#hola-f').innerHTML = v
     })
+
+    this.appendChild(content)
   }
+
+  connectedCallback() {}
 }
 
 customElements.define('setter-hola-input', HolaInput)

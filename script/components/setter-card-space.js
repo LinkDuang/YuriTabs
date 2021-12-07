@@ -20,31 +20,36 @@ insertTemplate((dom) => {
 class CardSpace extends HTMLElement {
   constructor() {
     super()
+    // 构造
     let templateElem = e('#template-card-space')
     let content = templateElem.content.cloneNode(true)
-
+    
+    // 初始化
     let cardSpace = localStorage.getItem('cardSpace')
+    let cs = content.querySelector('#cardSpace')
+    let csv = content.querySelector('#cardSpaceValue')
     if (cardSpace === null) {
-      content.querySelector('#cardSpace').value = 1
-      content.querySelector('#cardSpaceValue').innerHTML = genCardSpaceValue(1)
+      cs.value = 1
+      csv.innerHTML = genCardSpaceValue(1)
     } else {
-      content.querySelector('#cardSpace').value = cardSpace
-      content.querySelector('#cardSpaceValue').innerHTML = genCardSpaceValue(cardSpace)
+      cs.value = cardSpace
+      csv.innerHTML = genCardSpaceValue(cardSpace)
     }
+
+    // 监听器
+    cs.addEventListener('input', (event) => {
+      let value = event.target.value
+      cs.value = value
+      csv.innerHTML = genCardSpaceValue(value)
+      localStorage.setItem('cardSpace', value)
+      __genTabs()
+    })
+    
     this.appendChild(content)
   }
 
   // 首次被插入 DOM 时被调用
-  connectedCallback() {
-    let range = this.querySelector('#cardSpace')
-    range.addEventListener('input', (event) => {
-      let value = event.target.value
-      this.querySelector('#cardSpace').value = value
-      this.querySelector('#cardSpaceValue').innerHTML = genCardSpaceValue(value)
-      localStorage.setItem('cardSpace', value)
-      __genTabs()
-    })
-  }
+  connectedCallback() {}
 }
 
 customElements.define('setter-card-space', CardSpace)

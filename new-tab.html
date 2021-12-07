@@ -16,42 +16,43 @@
     <header-block></header-block>
 
     <!-- Setting Modal -->
-    <input type="checkbox" id="setting-modal" class="modal-toggle" />
+    <input type="checkbox" id="setting-modal" class="modal-toggle" checked="true" />
     <div class="modal fixed top-0 left-0">
-      <div class="modal-box p-4 pl-6">
-        <div class="modal-header flex items-center mb-10">
+      <div class="modal-box p-4 pl-6 h-80">
+        <div class="modal-header flex items-center mb-8">
           <label for="setting-modal" class="close-label relative mr-8 flex items-center h-8">
             <div class="close-button bg-red-400 w-4 h-4 rounded-full flex items-center pt-0.5">
               <i class="gg-close transform scale-50 border-0"></i>
             </div>
           </label>
-
           <!-- <div class="text-3xl">设置</div> -->
-          <div class="tabs">
-            <a class="tab tab-lifted tab-active">主题</a>
-            <a class="tab tab-lifted">布局</a>
-            <a class="tab tab-lifted">其他</a>
-          </div>
+          <setting-tabs  class="ml-auto"></setting-tabs>
         </div>
 
-        <setter-hola-input></setter-hola-input>
-        <setter-card-width></setter-card-width>
-        <setter-card-space></setter-card-space>
-        <setter-theme></setter-theme>
+        <tab-content show="true" data-content-key="theme">
+          <setter-hola-input></setter-hola-input>
+          <setter-theme></setter-theme>
+          <div class="flex items-center justify-start h-16">
+            <div class="w-1/4 flex items-center">
+              <i class="gg-display-fullwidth"></i>
+              <span class="label-text ml-2">其他设置</span>
+            </div>
 
-        <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex items-center">
-            <i class="gg-display-fullwidth"></i>
-            <span class="label-text ml-2">其他设置</span>
+            <div class="w-3/4 flex">
+              <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
+                <span class="label-text text-xs mb-1">霓虹灯</span>
+                <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
+              </label>
+            </div>
           </div>
+        </tab-content>
 
-          <div class="w-3/4 flex">
-            <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
-              <span class="label-text text-xs mb-1">霓虹灯</span>
-              <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
-            </label>
-          </div>
-        </div>
+        <tab-content show="false" data-content-key="layout">
+          <setter-card-width></setter-card-width>
+          <setter-card-space></setter-card-space>
+        </tab-content>
+
+        <tab-content show="false" data-content-key="other"> ? </tab-content>
       </div>
     </div>
 
@@ -59,6 +60,8 @@
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
     <script src="./script/new-tab.js"></script>
+    <script src="./script/components/setting-tabs.js"></script>
+    <script src="./script/components/tab-content.js"></script>
     <script src="./script/components/header-block.js"></script>
     <script src="./script/components/setter-hola-input.js"></script>
     <script src="./script/components/setter-card-width.js"></script>
