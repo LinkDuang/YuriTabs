@@ -9,18 +9,6 @@
 //     }
 // });
 
-// 绑定主题开关（缺少初始化和数据本地储存）
-// const themeEvents = () => {
-//   let buttons = es('.theme-buttons')
-//   buttons.forEach((i) => {
-//     i.addEventListener('change', (event) => {
-//       let theme = event.target.dataset.value
-//       setTheme(theme)
-//       localStorage.setItem('theme', theme)
-//     })
-//   })
-// }
-
 // 键盘事件
 const keyboardEvents = () => {
   document.addEventListener('keydown', (event) => {

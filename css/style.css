@@ -35,3 +35,11 @@
 .lane:hover {
   opacity: 1;
 }
+
+.close-label .gg-close {
+  opacity: 0;
+}
+
+.close-label:hover .gg-close {
+  opacity: 1;
+}
