@@ -1,4 +1,3 @@
-
 const initHola = () => {
   let neonToggle = localStorage.getItem('neonToggle')
   e('#neon-toggle').checked = true
@@ -9,11 +8,13 @@ const initHola = () => {
   }
 }
 
-
 // 初始化数据，localStorage
 const dataInit = () => {
   // initTheme()
-  initHola()
+  // initHola()
+  // let root = e(':root')
+  // root.classList.add('light-material-1')
+  // console.log('root', root)
 }
 
 dataInit()

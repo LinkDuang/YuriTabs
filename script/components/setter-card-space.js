@@ -4,7 +4,7 @@ insertTemplate((dom) => {
       <div class="flex items-center justify-start h-16">
         <div class="w-1/4 flex items-center">
           <i class="gg-display-spacing"></i>
-          <span class="label-text ml-2">卡片间距</span>
+          <span class="label-text ml-2">按钮间距</span>
         </div>
         <div class="w-2/4">
           <label for="">

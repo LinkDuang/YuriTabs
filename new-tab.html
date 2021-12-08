@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="">
+<html data-theme="system">
   <head>
     <meta charset="utf-8" />
     <title>Yuri Tab</title>
@@ -16,9 +16,9 @@
     <header-block></header-block>
 
     <!-- Setting Modal -->
-    <input type="checkbox" id="setting-modal" class="modal-toggle" checked="true" />
+    <input type="checkbox" id="setting-modal" class="modal-toggle" />
     <div class="modal fixed top-0 left-0">
-      <div class="modal-box p-4 pl-6 h-80">
+      <div class="modal-box p-4 pl-6">
         <div class="modal-header flex items-center mb-8">
           <label for="setting-modal" class="close-label relative mr-8 flex items-center h-8">
             <div class="close-button bg-red-400 w-4 h-4 rounded-full flex items-center pt-0.5">
@@ -26,13 +26,54 @@
             </div>
           </label>
           <!-- <div class="text-3xl">设置</div> -->
-          <setting-tabs  class="ml-auto"></setting-tabs>
+          <setting-tabs class="ml-auto"></setting-tabs>
         </div>
 
         <tab-content show="true" data-content-key="theme">
-          <setter-hola-input></setter-hola-input>
-          <setter-theme></setter-theme>
-          <div class="flex items-center justify-start h-16">
+          <div class="h-72">
+            <setter-hola-input></setter-hola-input>
+            <setter-theme></setter-theme>
+            <div class="-mt-4">
+              <setter-material show="true" theme="light" name="浅色材质"></setter-material>
+              <setter-material show="false" theme="dark" name="深色材质"></setter-material>
+            </div>
+
+            <!-- 
+            <div class="flex items-center justify-start h-16">
+              <div class="w-1/4 flex items-center">
+                <i class="gg-color-bucket ml-1"></i>
+                <span class="label-text ml-5">亮色材质</span>
+              </div>
+
+              <div class="w-3/4 flex mt-8">
+                <div class="space-x-2 carousel carousel-center rounded-sm">
+                  <div class="material-none w-20 h-16 btn btn-outline btn-square btn-lg">无</div>
+                  <div class="light-material-1 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="light-material-2 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="light-material-3 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="light-material-4 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="flex items-center justify-start h-16 mt-4">
+              <div class="w-1/4 flex items-center">
+                <i class="gg-color-bucket ml-1"></i>
+                <span class="label-text ml-5">深色材质</span>
+              </div>
+              <div class="w-3/4 flex mt-8">
+                <div class="space-x-2 carousel carousel-center rounded-sm">
+                  <div class="material-none w-20 h-16 btn btn-outline btn-square btn-lg">无</div>
+                  <div class="dark-material-1 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="dark-material-2 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="dark-material-3 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                  <div class="dark-material-4 border-2 w-20 h-16 btn btn-square btn-lg"></div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <!-- <div class="flex items-center justify-start h-16">
             <div class="w-1/4 flex items-center">
               <i class="gg-display-fullwidth"></i>
               <span class="label-text ml-2">其他设置</span>
@@ -44,15 +85,59 @@
                 <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
               </label>
             </div>
-          </div>
+          </div> -->
         </tab-content>
 
         <tab-content show="false" data-content-key="layout">
-          <setter-card-width></setter-card-width>
-          <setter-card-space></setter-card-space>
+          <div class="h-72">
+            <setter-card-width></setter-card-width>
+            <setter-card-space></setter-card-space>
+          </div>
         </tab-content>
 
-        <tab-content show="false" data-content-key="other"> ? </tab-content>
+        <tab-content show="false" data-content-key="plan">
+          <div class="h-72">plan</div>
+        </tab-content>
+        <tab-content show="false" data-content-key="other">
+          <div class="h-72">other</div>
+        </tab-content>
+        <tab-content show="false" data-content-key="about">
+          <div class="flex items-start justify-center flex-col h-72">
+            <div class="alert alert-sm w-full h-8 rounded-lg pr-0">
+              <div class="flex-1">
+                <label class="mx-3">Email: djw7569@gmail.com</label>
+              </div>
+              <div class="flex-none">
+                <a type="email" class="btn btn-outline btn-sm" href="mailto:djw7569@gmail.com">
+                  <span class="gg-mail mr-2"></span>
+                  Send Email
+                </a>
+              </div>
+            </div>
+
+            <div class="alert mt-2 alert-sm w-full h-8 rounded-lg pr-0">
+              <div class="flex-1">
+                <label class="mx-3">QQ: 479194907</label>
+              </div>
+              <div class="flex-none">
+                <button data-value="479194907" class="copyButton btn btn-outline btn-sm">
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="alert mt-2 alert-sm w-full h-8 rounded-lg pr-0">
+              <div class="flex-1">
+                <label class="mx-3">Wechat: ulysses1970</label>
+              </div>
+              <div class="flex-none">
+                <button data-value="ulysses1970" class="copyButton btn btn-outline btn-sm">
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </tab-content>
       </div>
     </div>
 
@@ -67,6 +152,7 @@
     <script src="./script/components/setter-card-width.js"></script>
     <script src="./script/components/setter-card-space.js"></script>
     <script src="./script/components/setter-theme.js"></script>
+    <script src="./script/components/setter-material.js"></script>
     <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
   </body>

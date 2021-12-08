@@ -4,7 +4,7 @@ insertTemplate((dom) => {
     <div class="flex items-center justify-start h-16">
           <div class="w-1/4 flex items-center">
             <i class="gg-display-fullwidth"></i>
-            <span class="label-text ml-2">卡片宽度</span>
+            <span class="label-text ml-2">按钮宽度</span>
           </div>
           <div class="w-2/4">
             <label for="">

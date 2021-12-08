@@ -19,7 +19,6 @@ class TabContent extends HTMLElement {
   attributeChangedCallback(attrName, oldValue, newValue) {
     // 如果没有设置 show 属性，则不显示
     if (attrName === 'show') {
-      console.log('show 变化', newValue)
       this.classList.toggle('hidden', newValue === 'false')
     }
   }

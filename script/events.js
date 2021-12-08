@@ -48,6 +48,6 @@ const holaEvents = () => {
 const __register_events = () => {
   copyButtonsEvents()
   keyboardEvents()
-  holaEvents()
+  // holaEvents()
 }
 __register_events()

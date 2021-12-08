@@ -3,8 +3,8 @@ insertTemplate((dom) => {
     <template id="template-hola-input">
       <div class="flex items-center justify-start h-16">
           <div class="w-1/4 flex items-center">
-            <i class="gg-pen"></i>
-            <span class="label-text ml-2">问候语</span>
+            <i class="gg-terminal"></i>
+            <span class="label-text ml-2">问候</span>
           </div>
 
           <div class="w-3/4 flex items-items">
