@@ -10,7 +10,7 @@ insertTemplate((dom) => {
           <input
             type="radio"
             name="themes"
-            data-title="🌝 亮色"
+            data-title="🌝 浅色"
             data-value="light"
             class="theme-buttons btn btn-sm"
           />
