@@ -19,13 +19,12 @@
     <input type="checkbox" id="setting-modal" class="modal-toggle" />
     <div class="modal fixed top-0 left-0">
       <div class="modal-box p-4 pl-6">
-        <div class="modal-header flex items-center mb-8">
+        <div class="modal-header flex items-center mb-6">
           <label for="setting-modal" class="close-label relative mr-8 flex items-center h-8">
             <div class="close-button bg-red-400 w-4 h-4 rounded-full flex items-center pt-0.5">
-              <i class="gg-close transform scale-50 border-0"></i>
+              <i class="gg-close transform scale-50 border-0 mr-0.5"></i>
             </div>
           </label>
-          <!-- <div class="text-3xl">设置</div> -->
           <setting-tabs class="ml-auto"></setting-tabs>
         </div>
 
@@ -38,37 +37,47 @@
               <setter-material show="false" theme="dark" name="深色材质"></setter-material>
             </div>
           </div>
-
-          <!-- <div class="flex items-center justify-start h-16">
-            <div class="w-1/4 flex items-center">
-              <i class="gg-display-fullwidth"></i>
-              <span class="label-text ml-2">其他设置</span>
-            </div>
-
-            <div class="w-3/4 flex">
-              <label class="cursor-pointer label flex flex-col items-start w-18 mr-4">
-                <span class="label-text text-xs mb-1">霓虹灯</span>
-                <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
-              </label>
-            </div>
-          </div> -->
         </tab-content>
 
         <tab-content show="false" data-content-key="layout">
           <div class="h-72">
             <setter-card-width></setter-card-width>
             <setter-card-space></setter-card-space>
+            <!-- <div class="flex items-center justify-start h-16">
+              <div class="w-1/4 flex items-center">
+                <i class="gg-drop-opacity"></i>
+                <span class="label-text ml-2">半透明</span>
+              </div>
+              <div class="w-2/4"></div>
+            </div> -->
           </div>
         </tab-content>
-
-        <tab-content show="false" data-content-key="plan">
-          <div class="h-72">plan</div>
-        </tab-content>
-        <tab-content show="false" data-content-key="other">
-          <div class="h-72">other</div>
+        <tab-content show="false" data-content-key="search">
+          <div class="h-72">Search config</div>
         </tab-content>
         <tab-content show="false" data-content-key="about">
-          <div class="flex items-start justify-center flex-col h-72">
+          <div class="flex items-start flex-col h-72">
+            <div class="text-2xl mb-2">未来开发计划</div>
+            <div class="m-1 indicator flex items-center">
+              <div class="badge badge-primary h-2"></div>
+              <div class="ml-4 place-items-center">
+                更多外观可选项：包含背景材质、按钮风格、问候语、自定义 CSS 片段
+              </div>
+            </div>
+            <div class="m-1 indicator flex items-center">
+              <div class="badge badge-primary h-2"></div>
+              <div class="ml-4 place-items-center">
+                全局快捷键标识、Block List 过滤的网页与关键词
+              </div>
+            </div>
+            <div class="m-1 indicator flex items-center">
+              <div class="badge badge-primary h-2"></div>
+              <div class="ml-4 place-items-center">Today 视图，全局搜索框，接入 Flomo</div>
+            </div>
+
+            <div class="text-xs mt-auto mb-1">
+              如有任何想法、需求或反馈，欢迎通过下面的联系方式告诉作者：
+            </div>
             <div class="alert alert-sm w-full h-8 rounded-lg pr-0">
               <div class="flex-1">
                 <label class="mx-3">Email: djw7569@gmail.com</label>
@@ -94,7 +103,7 @@
 
             <div class="alert mt-2 alert-sm w-full h-8 rounded-lg pr-0">
               <div class="flex-1">
-                <label class="mx-3">Wechat: ulysses1970</label>
+                <label class="mx-3">微信: ulysses1970</label>
               </div>
               <div class="flex-none">
                 <button data-value="ulysses1970" class="copyButton btn btn-outline btn-sm">
@@ -111,14 +120,14 @@
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
     <script src="./script/new-tab.js"></script>
+    <script src="./script/components/header-block.js"></script>
     <script src="./script/components/setting-tabs.js"></script>
     <script src="./script/components/tab-content.js"></script>
-    <script src="./script/components/header-block.js"></script>
     <script src="./script/components/setter-hola-input.js"></script>
-    <script src="./script/components/setter-card-width.js"></script>
-    <script src="./script/components/setter-card-space.js"></script>
     <script src="./script/components/setter-theme.js"></script>
     <script src="./script/components/setter-material.js"></script>
+    <script src="./script/components/setter-card-width.js"></script>
+    <script src="./script/components/setter-card-space.js"></script>
     <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
   </body>

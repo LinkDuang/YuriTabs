@@ -29,6 +29,10 @@ insertTemplate((dom) => {
             class="theme-buttons btn btn-sm"
           />
         </div>
+        <label class="cursor-pointer label flex items-center ml-auto">
+          <span class="label-text text-xs mr-1">霓虹灯</span>
+          <input id="neon-toggle" type="checkbox" checked="checked" class="toggle" />
+        </label>
       </div>
     </template>
   `

@@ -28,13 +28,13 @@
   background-color: rgba(31, 41, 55, 0.5);
 }
 
-.lane {
+/* .lane {
   opacity: 0.5;
 }
 
 .lane:hover {
   opacity: 1;
-}
+} */
 
 .close-label .gg-close {
   opacity: 0;

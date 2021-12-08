@@ -8,8 +8,9 @@ insertTemplate((dom) => {
         <a data-key="layout" class="tab-picker tab tab-lifted">
           <i class="gg-shape-hexagon"></i>
         </a>
-        <a data-key="plan" class="tab-picker tab tab-lifted">开发计划</a>
-        <a data-key="other" class="tab-picker tab tab-lifted">鸣谢</a>
+        <!-- <a data-key="search" class="tab-picker tab tab-lifted">
+          <i class="gg-search"></i>
+        </a> -->
         <a data-key="about" class="tab-picker tab tab-lifted">
           <i class="gg-boy"></i>
         </a>
