@@ -71,6 +71,17 @@ class MaterialPicker extends HTMLElement {
     let nextMatNo = localStorage.getItem(`${theme}-material`)
     root.classList.add(`${theme}-material-${nextMatNo}`)
   }
+
+  static get observedAttributes() {
+    return ['show']
+  }
+
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    // 如果没有设置 show 属性，则不显示
+    if (attrName === 'show') {
+      this.classList.toggle('hidden', newValue === 'false')
+    }
+  }
 }
 
 customElements.define('setter-material', MaterialPicker)

@@ -42,6 +42,27 @@ class ThemePicker extends HTMLElement {
     let content = templateElem.content.cloneNode(true)
 
     // 初始化
+    this.setThemePicker(content)
+    this.setMaterialPickerShow()
+
+    // 监听器
+    let buttons = content.querySelectorAll('.theme-buttons')
+    buttons.forEach((i) => {
+      i.addEventListener('change', (event) => {
+        let theme = event.target.dataset.value
+        setTheme(theme)
+        localStorage.setItem('theme', theme)
+        this.setMaterialPickerShow()
+        this.setMaterialBackground()
+      })
+    })
+
+    this.appendChild(content)
+  }
+
+  connectedCallback() {}
+
+  setThemePicker(content) {
     let theme = localStorage.getItem('theme')
     if (theme === null || theme === 'system') {
       setTheme('system')
@@ -53,21 +74,42 @@ class ThemePicker extends HTMLElement {
       setTheme('dark')
       content.querySelector(`input[data-value='dark']`).checked = true
     }
-
-    // 监听器
-    let buttons = content.querySelectorAll('.theme-buttons')
-    buttons.forEach((i) => {
-      i.addEventListener('change', (event) => {
-        let theme = event.target.dataset.value
-        setTheme(theme)
-        localStorage.setItem('theme', theme)
-      })
-    })
-
-    this.appendChild(content)
   }
 
-  connectedCallback() {}
+  setMaterialPickerShow() {
+    let theme = localStorage.getItem('theme')
+    let light = e(`setter-material[theme='light']`)
+    let dark = e(`setter-material[theme='dark']`)
+
+    if (theme === 'system') {
+      light.setAttribute('show', 'true')
+      dark.setAttribute('show', 'true')
+    }
+    if (theme === 'light') {
+      light.setAttribute('show', 'true')
+      dark.setAttribute('show', 'false')
+    }
+    if (theme === 'dark') {
+      light.setAttribute('show', 'false')
+      dark.setAttribute('show', 'true')
+    }
+  }
+
+  setMaterialBackground() {
+    // 在切换 theme 的时候，同时切换材质
+
+    // 切换材质具体操作：
+    let root = e(`:root`)
+    // 清除原来的
+    let lastMatClass = root.classList.value
+    if (lastMatClass) {
+      root.classList.remove(lastMatClass)
+    }
+    // 切换为当前的
+    let theme = root.dataset.theme
+    let nextMatNo = localStorage.getItem(`${theme}-material`)
+    root.classList.add(`${theme}-material-${nextMatNo}`)
+  }
 }
 
 customElements.define('setter-theme', ThemePicker)

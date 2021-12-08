@@ -5,10 +5,10 @@
 
 /* 材质选择按钮 */
 .material-button.active {
-  border: pink 3px solid;
+  border: #560df8 3px solid;
 }
 .material-button.active:hover {
-  border: red 3px solid;
+  border: #581dd6 3px solid;
 }
 /* 
 材质编号：

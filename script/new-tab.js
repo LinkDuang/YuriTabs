@@ -63,7 +63,7 @@ const __genTabs = () => {
     if (other.children.length > 0) {
       let laneDom = genLaneWithLaneData(other)
       container.innerHTML += laneDom
-      console.log('other', other)
+      // console.log('other', other)
     }
   })
 }
