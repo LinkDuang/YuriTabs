@@ -13,10 +13,15 @@
 const keyboardEvents = () => {
   document.addEventListener('keydown', (event) => {
     let { key } = event
+    let settingModal = e('#setting-modal')
     if (key === 'Escape') {
-      let settingModal = e('#setting-modal')
       if (settingModal.checked === true) {
-        e('#setting-modal').checked = false
+        settingModal.checked = false
+      }
+    }
+    if (key === ',') {
+      if (settingModal.checked === false) {
+        settingModal.checked = true
       }
     }
   })

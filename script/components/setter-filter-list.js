@@ -31,7 +31,6 @@ class FilterList extends HTMLElement {
 
     // 初始化
     let blockList = getBlockList()
-    console.log('block list', blockList)
     let input = content.querySelector('#filterListInput')
 
     if (blockList.length !== 0) {
