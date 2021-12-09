@@ -3,7 +3,7 @@ const genButton = (i) => {
   let iconFinder = `https://icon.horse/icon/${host}`
   const buttonDom = `
     <a href=${i.url} >
-      <div class="link-item btn w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
+      <div class="link-item btn normal-case w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
         <div class="avatar">
           <div class="rounded-full w-5 h-5 mr-2">
             <img src="${iconFinder}" loading="lazy"  />
@@ -24,6 +24,9 @@ const genLaneWithLaneData = (rawLane) => {
   let filted = marks.filter(
     (i) => !blockList.some((block) => i.title.includes(block) || i.url.includes(block)),
   )
+  if (filted.length === 0) { // 过滤完之后一个都没有了，就隐藏这根泳道
+    return ``
+  }
   let buttonGroup = filted.map((i) => genButton(i))
   let width = getCardWidth()
   let margin = getCardSpace()

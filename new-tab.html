@@ -42,23 +42,9 @@
 
         <tab-content show="false" data-content-key="layout">
           <div class="h-72">
-            <div class="flex items-center justify-start h-16">
-              <div class="w-1/4 flex items-center tooltip" data-tip="如果不想让某个书签显示出来，请在此填写">
-                <i class="gg-edit-flip-h"></i>
-                <span class="label-text ml-2">隐藏</span>
-              </div>
-              <div class="w-3/4 flex items-items">
-                <input
-                  type="text"
-                  placeholder="请填写要隐藏的标题或 URL，例如 hyrule.cn"
-                  class="input input-bordered h-10 w-full"
-                  id="hola-input"
-                />
-              </div>
-            </div>
-
             <setter-card-width></setter-card-width>
             <setter-card-space></setter-card-space>
+            <setter-filter-list></setter-filter-list>
             <!-- <div class="flex items-center justify-start h-16">
               <div class="w-1/4 flex items-center">
                 <i class="gg-drop-opacity"></i>
@@ -142,6 +128,7 @@
     <script src="./script/components/setter-hola-input.js"></script>
     <script src="./script/components/setter-theme.js"></script>
     <script src="./script/components/setter-material.js"></script>
+    <script src="./script/components/setter-filter-list.js"></script>
     <script src="./script/components/setter-card-width.js"></script>
     <script src="./script/components/setter-card-space.js"></script>
     <script src="./script/init.js"></script>

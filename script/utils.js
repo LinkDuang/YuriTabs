@@ -16,7 +16,10 @@ const getBlockList = () => {
   }
   try {
     let r = JSON.parse(bls)
-    return Array.isArray(r) ? r : []
+    if (Array.isArray(r)) {
+      return r.filter((x) => x !== '')
+    }
+    return []
   } catch (e) {
     return []
   }
