@@ -14,7 +14,7 @@ const dataInit = () => {
   initHola()
   // let root = e(':root')
   // root.classList.add('light-material-1')
-  // console.log('root', root)
+
 }
 
 dataInit()

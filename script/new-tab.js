@@ -63,11 +63,11 @@ const __genTabs = () => {
     if (other.children.length > 0) {
       let laneDom = genLaneWithLaneData(other)
       container.innerHTML += laneDom
-      // console.log('other', other)
     }
   })
 }
 
 window.addEventListener('load', () => {
   __genTabs()
+  e('.square').classList.remove('hidden')
 })
