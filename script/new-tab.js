@@ -9,7 +9,7 @@ const genButton = (i) => {
             <img src="${iconFinder}" loading="lazy"  />
           </div>
         </div>
-        <div class="whitespace-nowrap overflow-hidden overflow-ellipsis">
+        <div class="whitespace-nowrap overflow-hidden">
           ${i.title}
         </div>
       </div>

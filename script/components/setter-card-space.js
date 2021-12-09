@@ -6,10 +6,10 @@ insertTemplate((dom) => {
           <i class="gg-display-spacing"></i>
           <span class="label-text ml-2">按钮间距</span>
         </div>
-        <div class="w-2/4">
+        <div class="w-3/4">
           <label for="">
             <span id="cardSpaceValue"></span>
-            <input id="cardSpace" type="range" max="5" min="1" step="1" class="range" />
+            <input id="cardSpace" type="range" max="8" min="1" step="1" class="range" />
           </label>
         </div>
       </div>

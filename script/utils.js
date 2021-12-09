@@ -66,15 +66,18 @@ const setTheme = (theme) => {
 
 const getCardWidth = () => {
   let widthDict = {
-    1: 'w-40',
-    2: 'w-44',
-    3: 'w-48',
-    4: 'w-52',
-    5: 'w-56',
+    1: 'w-32',
+    2: 'w-36',
+    3: 'w-40',
+    4: 'w-44',
+    5: 'w-48',
+    6: 'w-52',
+    7: 'w-56',
+    8: 'w-60',
   }
   let cardWidth = localStorage.getItem('cardWidth')
   if (!cardWidth === null || widthDict[cardWidth] === undefined) {
-    return widthDict['3']
+    return widthDict['5']
   }
   return widthDict[cardWidth]
 }
@@ -86,6 +89,9 @@ const getCardSpace = () => {
     3: 'mx-3',
     4: 'mx-3.5',
     5: 'mx-4',
+    6: 'mx-5',
+    7: 'mx-6',
+    8: 'mx-7',
   }
   let cardSpace = localStorage.getItem('cardSpace')
   if (!cardSpace === null || spaceDict[cardSpace] === undefined) {
@@ -96,11 +102,14 @@ const getCardSpace = () => {
 
 const genCardWidthValue = (k) => {
   let rangeDict = {
-    1: '10 rem',
-    2: '11 rem',
-    3: '12 rem',
-    4: '13 rem',
-    5: '14 rem',
+    1: '8 rem',
+    2: '9 rem',
+    3: '10 rem',
+    4: '11 rem',
+    5: '12 rem',
+    6: '13 rem',
+    7: '14 rem',
+    8: '15 rem',
   }
   return rangeDict[k]
 }
@@ -112,6 +121,9 @@ const genCardSpaceValue = (k) => {
     3: '0.75 rem',
     4: '0.875 rem',
     5: '1 rem',
+    6: '1.25 rem',
+    7: '1.5 rem',
+    8: '1.75 rem',
   }
   return spaceDict[k]
 }
