@@ -28,16 +28,19 @@ class MaterialPicker extends HTMLElement {
     let templateElem = e('#template-material-picker')
     let content = templateElem.content.cloneNode(true)
 
-    // 初始化
+    // 初始化，默认值
     let theme = this.getAttribute('theme')
+    let matNo = localStorage.getItem(`${theme}-material`)
+    if (matNo === null) {
+      matNo = '2'
+      localStorage.setItem(`${theme}-material`, '2')
+    }
+
+    // 初始化材质按钮
     content.querySelectorAll('.material-button').forEach((button) => {
       let material = button.dataset.material
       button.classList.add(`${theme}-material-${material}`)
-
-      let matNo = localStorage.getItem(`${theme}-material`)
       button.classList.toggle('active', material == matNo)
-      // button highlight
-      // 读取 local，然后设置
     })
     content.querySelector('.name-label').innerHTML = this.getAttribute('name')
     this.changeMaterial()

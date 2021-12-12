@@ -1,26 +1,18 @@
-// 监听系统变化：https://juejin.cn/post/6966794966165094414
-
-// const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
-// themeMedia.addListener(e => {
-//     if (e.matches) {
-//         console.log('light')
-//     } else {
-//         console.log('dark')
-//     }
-// });
-
 // 键盘事件
 const keyboardEvents = () => {
   document.addEventListener('keydown', (event) => {
     let { key } = event
     let settingModal = e('#setting-modal')
     if (key === 'Escape') {
-      if (settingModal.checked === true) {
+      let open = settingModal.checked === true
+      if (open) {
         settingModal.checked = false
       }
     }
     if (key === ',') {
-      if (settingModal.checked === false) {
+      let noOpen = settingModal.checked === false
+      let noFocused = e('#search-bar') !== document.activeElement
+      if (noOpen && noFocused) {
         settingModal.checked = true
       }
     }
@@ -53,24 +45,27 @@ const holaEvents = () => {
 // 搜索事件
 const searchEvents = () => {
   // 如果用 input 监听，那么 Enter 无法触发
-  // e('#search-bar').addEventListener('input', (event) => {
-  //   console.log('event', event.data)
-  // })
+  let cooldown = true
+
+  e('#search-bar').addEventListener('input', (event) => {
+    cooldown = false
+    setTimeout(() => {
+      cooldown = true
+    }, 100)
+  })
 
   // 如果用 keydown 监听，那么 Enter 会在输入法上屏的时候触发
-  e('#search-bar').addEventListener('keydown', (event) => {
+  e('#search-bar').addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
+      if (cooldown === false) {
+        return
+      }
       let v = e('#search-bar').value
       if (v.length > 0) {
         window.location.href = `https://www.google.com/search?q=${v}`
       }
     }
   })
-
-  // 解决方案猜想：
-  // input 事件在输入法上屏的时候，标记一个 100ms 的时间 cooldown = true
-  // 在 100ms 后 cooldown = false
-  // keydown 时，if cooldown === true，那么不操作
 }
 
 const __register_events = () => {
