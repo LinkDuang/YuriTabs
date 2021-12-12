@@ -12,7 +12,7 @@ insertTemplate((dom) => {
         <div class="w-3/4 flex items-items">
           <input
             type="text"
-            placeholder="例如 hyrule.cn，多个标题用空格分隔"
+            placeholder="例如 hyrule.cn，多个条件用空格分隔"
             class="input input-bordered h-10 w-full"
             id="filterListInput"
           />

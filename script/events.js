@@ -11,7 +11,7 @@ const keyboardEvents = () => {
     }
     if (key === ',') {
       let noOpen = settingModal.checked === false
-      let noFocused = e('#search-bar') !== document.activeElement
+      let noFocused = e('#search-input') !== document.activeElement
       if (noOpen && noFocused) {
         settingModal.checked = true
       }
@@ -47,7 +47,7 @@ const searchEvents = () => {
   // 如果用 input 监听，那么 Enter 无法触发
   let cooldown = true
 
-  e('#search-bar').addEventListener('input', (event) => {
+  e('#search-input').addEventListener('input', (event) => {
     cooldown = false
     setTimeout(() => {
       cooldown = true
@@ -55,12 +55,12 @@ const searchEvents = () => {
   })
 
   // 如果用 keydown 监听，那么 Enter 会在输入法上屏的时候触发
-  e('#search-bar').addEventListener('keyup', (event) => {
+  e('#search-input').addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
       if (cooldown === false) {
         return
       }
-      let v = e('#search-bar').value
+      let v = e('#search-input').value
       if (v.length > 0) {
         window.location.href = `https://www.google.com/search?q=${v}`
       }
