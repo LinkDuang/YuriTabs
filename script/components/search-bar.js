@@ -30,6 +30,8 @@ class SearchBar extends HTMLElement {
 
     // render
     this.appendChild(content)
+    this.cooldown = true
+    this.timer = null
   }
 
   setEngine(input) {
@@ -39,20 +41,23 @@ class SearchBar extends HTMLElement {
   }
 
   searchEvents = (input) => {
-    // 如果用 input 监听，那么 Enter 无法触发
-    let cooldown = true
-
     input.addEventListener('input', (event) => {
-      cooldown = false
-      setTimeout(() => {
-        cooldown = true
-      }, 100)
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      this.cooldown = false
+      input.classList.add('input-error')
+      this.timer = setTimeout(() => {
+        input.classList.remove('input-error')
+        this.cooldown = true
+        this.timer = null
+      }, 200)
     })
 
     // 如果用 keydown 监听，那么 Enter 会在输入法上屏的时候触发
     input.addEventListener('keyup', (event) => {
       if (event.key === 'Enter') {
-        if (cooldown === false) {
+        if (this.cooldown === false) {
           return
         }
         let v = input.value
