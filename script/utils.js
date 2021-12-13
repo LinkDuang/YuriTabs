@@ -141,7 +141,7 @@ const getEngineText = () => {
     bing: { queryUrl: 'https://bing.com/search?q=', placeholder: 'Microsoft Bing' },
     duckDuckGo: {
       queryUrl: 'https://duckduckgo.com/?q=',
-      placeholder: '开启不受网络追踪的搜索之旅',
+      placeholder: 'duckduckgo 开启不受网络追踪的搜索之旅',
     },
   }
   return engines[k]

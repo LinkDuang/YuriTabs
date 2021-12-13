@@ -33,7 +33,7 @@ insertTemplate((dom) => {
             type="radio"
             name="searchEngine"
             data-title="DuckDuckGo"
-            data-key="dockDockGo"
+            data-key="duckDuckGo"
             class="theme-buttons btn btn-sm normal-case"
           />
         </div>
@@ -57,8 +57,8 @@ class SetterSearch extends HTMLElement {
       content.querySelector(`input[data-key='baidu']`).checked = true
     } else if (searchEngine === 'bing') {
       content.querySelector(`input[data-key='bing']`).checked = true
-    } else if (searchEngine === 'dockDockGo') {
-      content.querySelector(`input[data-key='dockDockGo']`).checked = true
+    } else if (searchEngine === 'duckDuckGo') {
+      content.querySelector(`input[data-key='duckDuckGo']`).checked = true
     }
 
     // 监听器
@@ -68,6 +68,11 @@ class SetterSearch extends HTMLElement {
       i.addEventListener('change', (event) => {
         let theme = event.target.dataset.key
         localStorage.setItem('searchEngine', theme)
+
+        let input = e('#search-input')
+        let { queryUrl, placeholder } = getEngineText()
+        input.placeholder = placeholder
+        input.dataset.queryUrl = queryUrl
       })
     })
 
