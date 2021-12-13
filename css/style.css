@@ -6,9 +6,6 @@
     opacity: 1;
   }
 }
-.hidden {
-  display: none;
-}
 [data-theme='dark'] .hola-container {
   font-weight: 200;
 }

@@ -144,5 +144,8 @@ const getEngineText = () => {
       placeholder: 'duckduckgo 开启不受网络追踪的搜索之旅',
     },
   }
+  if (engines[k] === undefined) {
+    return engines.baidu
+  }
   return engines[k]
 }

@@ -51,10 +51,10 @@ class SetterSearch extends HTMLElement {
 
     // 初始化
     let searchEngine = localStorage.getItem('searchEngine')
-    if (searchEngine === null || searchEngine === 'google') {
-      content.querySelector(`input[data-key='google']`).checked = true
-    } else if (searchEngine === 'baidu') {
+    if (searchEngine === null || searchEngine === 'baidu') {
       content.querySelector(`input[data-key='baidu']`).checked = true
+    } else if (searchEngine === 'google') {
+      content.querySelector(`input[data-key='google']`).checked = true
     } else if (searchEngine === 'bing') {
       content.querySelector(`input[data-key='bing']`).checked = true
     } else if (searchEngine === 'duckDuckGo') {

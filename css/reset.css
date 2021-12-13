@@ -44,3 +44,28 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+/* 打一些 windtail css 的补丁 */
+
+.hidden {
+  display: none;
+}
+
+.bg-orange-400 {
+  background-color: rgb(251 146 60);
+}
+.bg-lime-400 {
+  background-color: rgb(163 230 53);
+}
+.bg-emerald-400 {
+  background-color: rgb(52 211 153);
+}
+.bg-cyan-400 {
+  background-color: rgb(34 211 238);
+}
+.bg-sky-400 {
+  background-color: rgb(56 189 248);
+}
+.bg-violet-400 {
+  background-color: rgb(167 139 250);
+}
