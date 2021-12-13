@@ -6,11 +6,14 @@ insertTemplate((dom) => {
           <i class="gg-dark-mode"></i>
         </a>
         <a data-key="layout" class="tab-picker tab tab-lifted">
-          <i class="gg-shape-hexagon"></i>
+          <i class="gg-ui-kit"></i>
         </a>
-        <!-- <a data-key="search" class="tab-picker tab tab-lifted">
+        <a data-key="search" class="tab-picker tab tab-lifted">
           <i class="gg-search"></i>
-        </a> -->
+        </a>
+        <a data-key="kbd" class="tab-picker tab tab-lifted">
+          <i class="gg-keyboard"></i>
+        </a>
         <a data-key="about" class="tab-picker tab tab-lifted">
           <i class="gg-boy"></i>
         </a>

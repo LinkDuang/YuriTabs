@@ -1,15 +1,15 @@
 // 键盘事件
 const keyboardEvents = () => {
   document.addEventListener('keydown', (event) => {
-    let { key } = event
+    let { code } = event
     let settingModal = e('#setting-modal')
-    if (key === 'Escape') {
+    if (code === 'Escape') {
       let open = settingModal.checked === true
       if (open) {
         settingModal.checked = false
       }
     }
-    if (key === ',') {
+    if (code === 'Comma') {
       let noOpen = settingModal.checked === false
       let noFocused = e('#search-input') !== document.activeElement
       if (noOpen && noFocused) {

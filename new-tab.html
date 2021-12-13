@@ -28,7 +28,7 @@
     </div>
 
     <!-- Setting Modal -->
-    <input type="checkbox" id="setting-modal" class="modal-toggle" />
+    <input checked type="checkbox" id="setting-modal" class="modal-toggle" />
     <div class="modal fixed top-0 left-0">
       <div class="modal-box p-4 pl-6">
         <div class="modal-header flex items-center mb-6">
@@ -73,29 +73,33 @@
             </div> -->
           </div>
         </tab-content>
+
         <tab-content show="false" data-content-key="search">
-          <div class="h-72">Search config</div>
+          <div class="h-72">
+            <setter-search></setter-search>
+          </div>
         </tab-content>
+        <tab-content show="false" data-content-key="kbd">
+          <div class="flex items-start flex-col h-72">
+            <div class="text-2xl mb-2">键盘使用</div>
+
+            <list-item>
+              由于浏览器的限制，新建标签页之后的焦点只能存在于浏览器自带的搜索框上，无法聚焦在本页面上。
+            </list-item>
+            <list-item>
+              这种情况下，可以使用 <kbd class="kbd">Tab</kbd> 键聚焦到本页面的搜索框上。
+            </list-item>
+            <list-item>可以使用 <kbd class="kbd">,</kbd> 键快速开启设置栏。</list-item>
+            <list-item>可以使用 <kbd class="kbd">Esc</kbd> 键快速退出设置栏。</list-item>
+          </div>
+        </tab-content>
+
         <tab-content show="false" data-content-key="about">
           <div class="flex items-start flex-col h-72">
             <div class="text-2xl mb-2">未来开发计划</div>
-            <div class="m-1 indicator flex items-center">
-              <div class="badge badge-primary h-2"></div>
-              <div class="ml-4 place-items-center">
-                更多外观可选项：包含背景材质、按钮风格、问候语、自定义 CSS 片段
-              </div>
-            </div>
-            <div class="m-1 indicator flex items-center">
-              <div class="badge badge-primary h-2"></div>
-              <div class="ml-4 place-items-center">
-                全局快捷键标识、Block List 过滤的网页与关键词
-              </div>
-            </div>
-            <div class="m-1 indicator flex items-center">
-              <div class="badge badge-primary h-2"></div>
-              <div class="ml-4 place-items-center">Today 视图，全局搜索框，接入 Flomo</div>
-            </div>
-
+            <list-item> 更多外观可选项：包含背景材质、按钮风格、问候语、自定义 CSS 片段 </list-item>
+            <list-item>全局快捷键标识、Block List 过滤的网页与关键词</list-item>
+            <list-item>Today 视图，全局搜索框，接入 Flomo</list-item>
             <div class="text-xs mt-auto mb-1 flex items-center">
               <i class="gg-attachment mr-2"></i>
               如有任何想法、需求或反馈，欢迎通过下面的联系方式告诉作者：
@@ -151,6 +155,8 @@
     <script src="./script/components/setter-filter-list.js"></script>
     <script src="./script/components/setter-card-width.js"></script>
     <script src="./script/components/setter-card-space.js"></script>
+    <script src="./script/components/setter-search.js"></script>
+    <script src="./script/components/list-item.js"></script>
     <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
     <script src="./script/log.js"></script>
