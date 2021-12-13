@@ -5,7 +5,7 @@
     <title>Yuri Tab</title>
     <link href="./css/style.css" rel="stylesheet" />
     <link href="./css/backgounds.css" rel="stylesheet" />
-    <link href="./fonts/dm-sans.css" rel="stylesheet" />
+    <link href="./fonts/fonts.css" rel="stylesheet" />
     <link href="./fonts/icons.css" rel="stylesheet" />
     <script src="./script/utils.js"></script>
   </head>
@@ -18,17 +18,11 @@
     <hr class="border-1" />
 
     <!-- SearchBar -->
-    <div class="flex w-screen relative bottom-6">
-      <input
-        type="text"
-        placeholder="搜索标签或网页"
-        class="search-bar input input-bordered rounded-3xl h-12 mx-auto transition-all"
-        id="search-input"
-      />
-    </div>
+    <search-bar></search-bar>
+    
 
     <!-- Setting Modal -->
-    <input checked type="checkbox" id="setting-modal" class="modal-toggle" />
+    <input type="checkbox" id="setting-modal" class="modal-toggle" />
     <div class="modal fixed top-0 left-0">
       <div class="modal-box p-4 pl-6">
         <div class="modal-header flex items-center mb-6">
@@ -145,18 +139,24 @@
     <!-- Tree container -->
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
+    <!-- components -->
     <script src="./script/new-tab.js"></script>
     <script src="./script/components/header-block.js"></script>
+    <script src="./script/components/search-bar.js"></script>
     <script src="./script/components/setting-tabs.js"></script>
     <script src="./script/components/tab-content.js"></script>
-    <script src="./script/components/setter-hola-input.js"></script>
-    <script src="./script/components/setter-theme.js"></script>
-    <script src="./script/components/setter-material.js"></script>
-    <script src="./script/components/setter-filter-list.js"></script>
-    <script src="./script/components/setter-card-width.js"></script>
-    <script src="./script/components/setter-card-space.js"></script>
-    <script src="./script/components/setter-search.js"></script>
     <script src="./script/components/list-item.js"></script>
+
+    <!-- setter -->
+    <script src="./script/components/setters/setter-hola-input.js"></script>
+    <script src="./script/components/setters/setter-theme.js"></script>
+    <script src="./script/components/setters/setter-material.js"></script>
+    <script src="./script/components/setters/setter-filter-list.js"></script>
+    <script src="./script/components/setters/setter-card-width.js"></script>
+    <script src="./script/components/setters/setter-card-space.js"></script>
+    <script src="./script/components/setters/setter-search.js"></script>
+
+    <!-- js -->
     <script src="./script/init.js"></script>
     <script src="./script/events.js"></script>
     <script src="./script/log.js"></script>

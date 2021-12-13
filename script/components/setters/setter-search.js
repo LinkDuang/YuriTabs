@@ -12,28 +12,28 @@ insertTemplate((dom) => {
             type="radio"
             name="searchEngine"
             data-title="Google"
-            data-value="https://www.google.com/search?q="
+            data-key="google"
             class="theme-buttons btn btn-sm normal-case"
           />
           <input
             type="radio"
             name="searchEngine"
             data-title="Baidu"
-            data-value="https://www.baidu.com/s?wd="
+            data-key="baidu"
             class="theme-buttons btn btn-sm normal-case"
           />
           <input
             type="radio"
             name="searchEngine"
             data-title="Bing"
-            data-value="https://bing.com/search?q="
+            data-key="bing"
             class="theme-buttons btn btn-sm normal-case"
           />
           <input
             type="radio"
             name="searchEngine"
             data-title="DuckDuckGo"
-            data-value="https://duckduckgo.com/?q="
+            data-key="dockDockGo"
             class="theme-buttons btn btn-sm normal-case"
           />
         </div>
@@ -50,8 +50,26 @@ class SetterSearch extends HTMLElement {
     let content = templateElem.content.cloneNode(true)
 
     // 初始化
+    let searchEngine = localStorage.getItem('searchEngine')
+    if (searchEngine === null || searchEngine === 'google') {
+      content.querySelector(`input[data-key='google']`).checked = true
+    } else if (searchEngine === 'baidu') {
+      content.querySelector(`input[data-key='baidu']`).checked = true
+    } else if (searchEngine === 'bing') {
+      content.querySelector(`input[data-key='bing']`).checked = true
+    } else if (searchEngine === 'dockDockGo') {
+      content.querySelector(`input[data-key='dockDockGo']`).checked = true
+    }
 
     // 监听器
+    let buttons = content.querySelectorAll(`input[name='searchEngine']`)
+
+    buttons.forEach((i) => {
+      i.addEventListener('change', (event) => {
+        let theme = event.target.dataset.key
+        localStorage.setItem('searchEngine', theme)
+      })
+    })
 
     // render
     this.appendChild(content)

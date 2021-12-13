@@ -24,7 +24,8 @@ const genLaneWithLaneData = (rawLane) => {
   let filted = marks.filter(
     (i) => !blockList.some((block) => i.title.includes(block) || i.url.includes(block)),
   )
-  if (filted.length === 0) { // 过滤完之后一个都没有了，就隐藏这根泳道
+  if (filted.length === 0) {
+    // 过滤完之后一个都没有了，就隐藏这根泳道
     return ``
   }
   let buttonGroup = filted.map((i) => genButton(i))

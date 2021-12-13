@@ -131,3 +131,18 @@ const genCardSpaceValue = (k) => {
   }
   return spaceDict[k]
 }
+
+const getEngineText = () => {
+  let k = localStorage.getItem('searchEngine')
+
+  let engines = {
+    google: { queryUrl: 'https://www.google.com/search?q=', placeholder: 'Google 搜索' },
+    baidu: { queryUrl: 'https://www.baidu.com/s?wd=', placeholder: '百度一下，你就知道' },
+    bing: { queryUrl: 'https://bing.com/search?q=', placeholder: 'Microsoft Bing' },
+    duckDuckGo: {
+      queryUrl: 'https://duckduckgo.com/?q=',
+      placeholder: '开启不受网络追踪的搜索之旅',
+    },
+  }
+  return engines[k]
+}

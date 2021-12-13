@@ -6,7 +6,7 @@
     opacity: 1;
   }
 }
-.hidden{
+.hidden {
   display: none;
 }
 [data-theme='dark'] .hola-container {
@@ -38,7 +38,7 @@
   opacity: 1;
 }
 
-.search-bar{
+.search-bar {
   width: 36rem;
-  
+  font-family: 'Product Sans';
 }

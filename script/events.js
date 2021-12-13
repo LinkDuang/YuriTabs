@@ -42,36 +42,9 @@ const holaEvents = () => {
   })
 }
 
-// 搜索事件
-const searchEvents = () => {
-  // 如果用 input 监听，那么 Enter 无法触发
-  let cooldown = true
-
-  e('#search-input').addEventListener('input', (event) => {
-    cooldown = false
-    setTimeout(() => {
-      cooldown = true
-    }, 100)
-  })
-
-  // 如果用 keydown 监听，那么 Enter 会在输入法上屏的时候触发
-  e('#search-input').addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-      if (cooldown === false) {
-        return
-      }
-      let v = e('#search-input').value
-      if (v.length > 0) {
-        window.location.href = `https://www.google.com/search?q=${v}`
-      }
-    }
-  })
-}
-
 const __register_events = () => {
   copyButtonsEvents()
   keyboardEvents()
   holaEvents()
-  searchEvents()
 }
 __register_events()
