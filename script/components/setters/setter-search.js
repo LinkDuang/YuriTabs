@@ -2,8 +2,7 @@ insertTemplate((dom) => {
   dom.innerHTML += `
     <template id="template-setter-search">
     <div class="flex items-center justify-start h-16">
-        <div class="w-1/4 flex tooltip"
-          data-tip="浏览器自带搜索通常比这里更好，建议直接使用">
+        <div class="w-1/4 flex">
           <i class="gg-bot mt-1"></i>
           <span class="label-text ml-2.5">搜索工具</span>
         </div>

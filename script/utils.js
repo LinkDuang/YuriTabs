@@ -2,6 +2,23 @@ const log = console.log.bind(console)
 const e = (selector) => document.querySelector(selector)
 const es = (selector) => document.querySelectorAll(selector)
 
+const local = {
+  // 将 localStorage 做一点基础封装，内置 JSON 解析
+  get(key, defaultValue = null) {
+    let value = localStorage.getItem(key)
+    if (value === null) {
+      return defaultValue
+    } else {
+      return JSON.parse(value)
+    }
+  },
+
+  set(key, value) {
+    let valueStr = JSON.stringify(value)
+    localStorage.setItem(key, valueStr)
+  },
+}
+
 const insertTemplate = (callback) => {
   // 这里本来不用这么扭曲，但是现在找不到好的插件可以用
   // 如果不使用 .innerHTML = xx 这种写法的话，
@@ -134,7 +151,6 @@ const genCardSpaceValue = (k) => {
 
 const getEngineText = () => {
   let k = localStorage.getItem('searchEngine')
-
   let engines = {
     google: { queryUrl: 'https://www.google.com/search?q=', placeholder: 'Google 搜索' },
     baidu: { queryUrl: 'https://www.baidu.com/s?wd=', placeholder: '百度一下，你就知道' },

@@ -74,7 +74,7 @@
         <tab-content show="false" data-content-key="search">
           <div class="flex items-start flex-col h-72">
             <div class="text-2xl mb-2">搜索</div>
-            <list-item>本页面的搜索框不会有自动补全功能，也不会展示你以往搜索的内容。 </list-item>
+            <list-item>本页面的搜索框不会有猜想补全，也不会展示你以往搜索的内容。 </list-item>
             <list-item>在这里配置的搜索工具也不会影响浏览器，只影响本页面的搜索框。 </list-item>
             <div class="w-full mt-2">
               <setter-search></setter-search>
@@ -93,8 +93,10 @@
             </list-item>
             <list-item>可以使用 <kbd class="kbd">,</kbd> 键快速开启设置栏。</list-item>
             <list-item>可以使用 <kbd class="kbd">Esc</kbd> 键快速退出设置栏。</list-item>
-            <list-item
-              >可以使用 <kbd class="kbd">Option ⌥</kbd> + <kbd class="kbd">Command ⌘</kbd> +
+            <list-item>
+              可以使用
+              <kbd class="kbd">⌥</kbd>
+              <kbd class="kbd">⌘</kbd>
               <kbd class="kbd">B</kbd>
               打开浏览器书签管理器。
             </list-item>
@@ -152,6 +154,10 @@
     <!-- Tree container -->
     <div id="bookmarks-tree-container" class="p-5 flex justify-start align-start"></div>
 
+    <!-- hidden components -->
+    <div class="hidden">
+      <canvas id="cache-icons"></canvas>
+    </div>
     <!-- components -->
     <script src="./script/new-tab.js"></script>
     <script src="./script/components/header-block.js"></script>
@@ -176,7 +182,7 @@
     <script src="./script/log.js"></script>
   </body>
 
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/themes.css" rel="stylesheet" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="./css/daisy.full.css" rel="stylesheet" />
+  <link href="./css/daisy.theme.css" rel="stylesheet" />
+  <link href="./css/tailwind.css" rel="stylesheet" />
 </html>
