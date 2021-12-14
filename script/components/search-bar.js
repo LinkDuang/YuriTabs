@@ -41,16 +41,24 @@ class SearchBar extends HTMLElement {
   }
 
   searchEvents = (input) => {
-    input.addEventListener('input', (event) => {
+    input.addEventListener('input', () => {
+      // Input
       if (this.timer) {
         clearTimeout(this.timer)
       }
       this.cooldown = false
-      // input.classList.add('input-error')
       this.timer = setTimeout(() => {
-        // input.classList.remove('input-error')
         this.cooldown = true
         this.timer = null
+
+        // 正好做了防抖，就在这里处理
+        // 0，每次进入网页，清空 sessionStorage 中的 value (浏览器自动做)
+        
+        // 1，将 value 写入 sessionStorage
+        // 2，触发 gen
+        // 3，gen 读取 value
+        // 4，将对应的数据标记上 hightlight
+        // __genTabs()
       }, 200)
     })
 
@@ -62,6 +70,7 @@ class SearchBar extends HTMLElement {
         }
         let v = input.value
         if (v.length > 0) {
+          // Enter
           let q = input.dataset.queryUrl
           window.location.href = `${q}${v}`
         }
