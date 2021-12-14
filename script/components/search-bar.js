@@ -46,9 +46,9 @@ class SearchBar extends HTMLElement {
         clearTimeout(this.timer)
       }
       this.cooldown = false
-      input.classList.add('input-error')
+      // input.classList.add('input-error')
       this.timer = setTimeout(() => {
-        input.classList.remove('input-error')
+        // input.classList.remove('input-error')
         this.cooldown = true
         this.timer = null
       }, 200)

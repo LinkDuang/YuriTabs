@@ -1,17 +1,12 @@
 insertTemplate((dom) => {
   dom.innerHTML += `
     <template id="template-card-width">
-    <div class="flex items-center justify-start h-16">
-          <div class="w-1/4 flex items-center">
-            <i class="gg-display-fullwidth"></i>
-            <span class="label-text ml-2">按钮宽度</span>
-          </div>
-          <div class="w-3/4">
-            <label for="">
-              <span id="widthRangeValue"></span>
-              <input id="widthRange" type="range" max="8" min="1" step="1" class="range" />
-            </label>
-          </div>
+      <div class="flex items-center justify-start h-16">
+        <label class="w-52">
+            <span>按钮宽度</span>
+            <span id="widthRangeValue"></span>
+            <input id="widthRange" type="range" max="8" min="1" step="1" class="range" />
+          </label>
         </div>
     </template>
   `

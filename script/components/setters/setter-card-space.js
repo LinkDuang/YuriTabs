@@ -2,16 +2,11 @@ insertTemplate((dom) => {
   dom.innerHTML += `
     <template id="template-card-space">
       <div class="flex items-center justify-start h-16">
-        <div class="w-1/4 flex items-center">
-          <i class="gg-display-spacing"></i>
-          <span class="label-text ml-2">按钮间距</span>
-        </div>
-        <div class="w-3/4">
-          <label for="">
-            <span id="cardSpaceValue"></span>
-            <input id="cardSpace" type="range" max="8" min="1" step="1" class="range" />
-          </label>
-        </div>
+        <label class="w-52">
+          <span >按钮间距</span>
+          <span id="cardSpaceValue"></span>
+          <input id="cardSpace" type="range" max="8" min="1" step="1" class="range" />
+        </label>
       </div>
     </template>
   `
@@ -23,7 +18,7 @@ class CardSpace extends HTMLElement {
     // 构造
     let templateElem = e('#template-card-space')
     let content = templateElem.content.cloneNode(true)
-    
+
     // 初始化
     let cardSpace = localStorage.getItem('cardSpace')
     let cs = content.querySelector('#cardSpace')
@@ -44,7 +39,7 @@ class CardSpace extends HTMLElement {
       localStorage.setItem('cardSpace', value)
       __genTabs()
     })
-    
+
     this.appendChild(content)
   }
 
