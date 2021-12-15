@@ -91,10 +91,23 @@ const imagesCacheEvent = () => {
   })
 }
 
+const tabEvents = () => {
+  // 1，看当前焦点在哪里
+  // 2，整理出来一个数组，每个元素是一个 link-card lighted
+  // 3，每次敲击 tab，切换到下一个元素
+  // window.addEventListener('keydown', (event) => {
+  //   // log('event.key', )
+  //   if (event.code === 'Tab') {
+  //     return
+  //   }
+  // })
+}
+
 const __register_events = () => {
   copyButtonsEvents()
   keyboardEvents()
   holaEvents()
+  tabEvents()
   // setTimeout(() => {
   // imagesCacheEvent()
   // }, 1000)

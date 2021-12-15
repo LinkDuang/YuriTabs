@@ -27,11 +27,12 @@ let rainbowColors = {
 }
 
 const genButton = (i, iconStyle, laneIndex) => {
+  let host = parseHost(i.url)
+
+  // icons
   if (iconStyle === null) {
     iconStyle = 'icon'
   }
-  let host = parseHost(i.url)
-
   let url = `https://icon.horse/icon/${host}`
   let iconUrl = ''
   let icons = local.get(`cacheIcons`, {})
@@ -40,7 +41,6 @@ const genButton = (i, iconStyle, laneIndex) => {
   } else {
     iconUrl = url
   }
-
   let dict = {
     icon: `<div class="rounded-full w-5 h-5 mr-2">
               <img src="${iconUrl}" class="icon-img" />
@@ -48,15 +48,15 @@ const genButton = (i, iconStyle, laneIndex) => {
     gray: `<div class="rounded-full w-5 h-5 mr-2 ${grayColors[laneIndex]}"></div>`,
     rainbow: `<div class="rounded-full w-5 h-5 mr-2 ${rainbowColors[laneIndex]}"></div>`,
   }
+
+  //render
   const buttonDom = `
-    <a href=${i.url} >
-      <div class="link-item btn normal-case w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
-        <div class="avatar">
-          ${dict[iconStyle]}
-        </div>
-        <div class="whitespace-nowrap overflow-hidden">
-          ${i.title}
-        </div>
+    <a href=${i.url} class="link-card link-item btn normal-case w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
+      <div class="avatar">
+        ${dict[iconStyle]} 
+      </div>
+      <div class="link-title whitespace-nowrap overflow-hidden">
+        ${i.title}
       </div>
     </a>
   `

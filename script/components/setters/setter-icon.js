@@ -2,9 +2,7 @@ insertTemplate((dom) => {
   dom.innerHTML += `
     <template id="template-setter-icon-style">
     <div class="flex items-center justify-start h-16">
-        <div class="w-1/4 flex tooltip"
-          data-tip="使用网站图标通过网络获取 icon，其他选项则不会（这往往意味着其他风格的图标速度更快）"
-        >
+        <div class="w-1/4 flex">
           <i class="gg-edit-noise "></i>
           <span class="label-text ml-2">图标风格</span>
         </div>

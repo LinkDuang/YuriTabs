@@ -3,9 +3,7 @@ insertTemplate((dom) => {
     <template id="template-list-item">
       <div class="m-1 indicator flex items-center">
         <div class="badge badge-primary h-2"></div>
-        <div class="list-content ml-4 place-items-center">
-          ???
-        </div>
+        <div class="list-content ml-4 place-items-center"></div>
       </div>
     </template>
   `

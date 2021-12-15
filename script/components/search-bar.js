@@ -13,7 +13,6 @@ insertTemplate((dom) => {
     </template>
   `
 })
-
 class SearchBar extends HTMLElement {
   constructor() {
     super()
@@ -52,13 +51,11 @@ class SearchBar extends HTMLElement {
         this.timer = null
 
         // 正好做了防抖，就在这里处理
-        // 0，每次进入网页，清空 sessionStorage 中的 value (浏览器自动做)
-        
-        // 1，将 value 写入 sessionStorage
-        // 2，触发 gen
-        // 3，gen 读取 value
-        // 4，将对应的数据标记上 hightlight
-        // __genTabs()
+        this.skw = input.value
+        let findInMarks = localStorage.getItem('findInMarks')
+        if (findInMarks !== 'false') {
+          this.setLinkCardStyle()
+        }
       }, 200)
     })
 
@@ -76,6 +73,38 @@ class SearchBar extends HTMLElement {
         }
       }
     })
+  }
+
+  setLinkCardStyle() {
+    let links = es('.link-card')
+    links.forEach((i) => {
+      if (this.skw === '') {
+        this.light(i)
+        return
+      }
+      let title = i.querySelector('.link-title').innerHTML
+      let keyInHref = i.href.includes(this.skw)
+      let keyInTitle = title.includes(this.skw)
+      if (!keyInTitle && !keyInHref) {
+        this.blur(i) // 模糊
+      } else {
+        this.light(i) // 高亮
+      }
+    })
+  }
+
+  light = (i) => {
+    i.classList.remove('lighted')
+    i.classList.remove('filter')
+    i.classList.remove('blur-sm')
+    i.classList.remove('grayscale')
+  }
+
+  blur = (i) => {
+    i.classList.add('lighted')
+    i.classList.add('filter')
+    i.classList.add('blur-sm')
+    i.classList.add('grayscale')
   }
 }
 
