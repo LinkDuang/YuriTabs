@@ -20,11 +20,14 @@
 }
 
 [data-theme='dark'] .link-item {
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+[data-theme='dark'] .btn:focus {
+  outline-color: rgba(255, 255, 255, 1) !important;
 }
 
 [data-theme='light'] .link-item:hover {
-  background-color: rgba(31, 41, 55, 0.5);
+  background-color: rgba(31, 41, 55, 1);
 }
 
 .close-label .gg-close {
@@ -36,6 +39,29 @@
 }
 
 .search-bar {
-  width: 36rem;
   font-family: 'Product Sans';
+}
+#quickly-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.w-120 {
+  width: 36rem;
+}
+.link-card:hover {
+  min-width: fit-content;
+  position: relative;
+  z-index: 10;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

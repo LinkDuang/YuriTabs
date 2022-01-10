@@ -8,7 +8,7 @@ insertTemplate((dom) => {
         </div>
         <div class="w-3/4 flex">
           <label class="cursor-pointer label flex items-center">
-            <span class="label-text text-xs mr-1">搜索时检索书签</span>
+            <span class="label-text text-xs mr-1">输入时检索书签</span>
             <input
               id="search-in-markbooks-toggle"
               type="checkbox"
