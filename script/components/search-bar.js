@@ -97,8 +97,9 @@ class SearchBar extends HTMLElement {
         return
       }
       let title = i.querySelector('.link-title').innerHTML
-      let keyInHref = i.href.includes(this.skw)
-      let keyInTitle = title.includes(this.skw)
+      let kw = this.skw.toLowerCase()
+      let keyInHref = i.href.toLowerCase().includes(kw)
+      let keyInTitle = title.toLowerCase().includes(kw)
       if (!keyInTitle && !keyInHref) {
         this.blur(i) // 模糊
       } else {
