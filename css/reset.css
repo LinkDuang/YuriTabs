@@ -69,3 +69,21 @@ h6 {
 .bg-violet-400 {
   background-color: rgb(167 139 250);
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.w-120 {
+  width: 36rem;
+}
+
+.max-w-32 {
+  max-width: 8rem;
+}

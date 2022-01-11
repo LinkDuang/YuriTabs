@@ -12,7 +12,8 @@ insertTemplate((dom) => {
         <div 
           id="quickly-container"
           open="false"
-          class="mx-auto h-0 pt-12 flex flex-nowrap overflow-x-scroll hide-scrollbar w-120 bg-base-200 z-0 rounded-3xl transition-all">
+          class="mx-auto h-0 pt-12 flex flex-nowrap overflow-x-scroll hide-scrollbar w-120
+          bg-base-200 z-0 rounded-3xl ">
         </div>
       </div>
     </template>
@@ -127,7 +128,7 @@ class SearchBar extends HTMLElement {
     card.classList.remove('w-full')
     card.classList.remove('mb-2')
     card.classList.remove('mt-2')
-    card.classList.add('w-32')
+    card.classList.add('max-w-32')
     card.classList.add('mr-1')
     card.classList.add('btn-sm')
     qc.appendChild(card)
@@ -142,7 +143,7 @@ class SearchBar extends HTMLElement {
     let qc = e('#quickly-container')
     qc.classList.add('h-24')
     qc.classList.add('p-2')
-    qc.classList.add('pt-14')
+    qc.classList.add('border-4')
     qc.classList.remove('rounded-3xl')
     qc.classList.add('rounded-tr-3xl')
     qc.classList.add('rounded-tl-3xl')
@@ -162,7 +163,7 @@ class SearchBar extends HTMLElement {
     qc.classList.remove('rounded-tr-3xl')
     qc.classList.remove('rounded-tl-3xl')
     qc.classList.remove('p-2')
-    qc.classList.remove('pt-14')
+    qc.classList.remove('border-4')
   }
 }
 

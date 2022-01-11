@@ -45,23 +45,10 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.w-120 {
-  width: 36rem;
+  transition: all 0.1s;
 }
 .link-card:hover {
   min-width: fit-content;
   position: relative;
   z-index: 10;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
