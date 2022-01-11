@@ -47,31 +47,22 @@ class SearchBar extends HTMLElement {
   }
 
   searchEvents = (input) => {
-    input.addEventListener('input', () => {
-      // Input
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
-      this.cooldown = false
-      this.timer = setTimeout(() => {
-        this.cooldown = true
-        this.timer = null
+    let shake = new AntiShakeEvent(() => {
+      // 正好做了防抖，就在这里处理
+      this.skw = input.value
+      let qc = e('#quickly-container')
+      qc.innerHTML = ''
+      this.quicklyButtons = []
 
-        // 正好做了防抖，就在这里处理
-        this.skw = input.value
-        let qc = e('#quickly-container')
-        qc.innerHTML = ''
-        this.quicklyButtons = []
-
-        let findInMarks = localStorage.getItem('findInMarks')
-        if (findInMarks !== 'false') {
-          this.setLinkCardStyle()
-          if (this.skw === '') {
-            this.closeExpansionArea()
-          }
+      let findInMarks = localStorage.getItem('findInMarks')
+      if (findInMarks !== 'false') {
+        this.setLinkCardStyle()
+        if (this.skw === '') {
+          this.closeExpansionArea()
         }
-      }, 200)
-    })
+      }
+    }, 100)
+    input.addEventListener('input', shake.register())
 
     // 如果用 keydown 监听，那么 Enter 会在输入法上屏的时候触发
     input.addEventListener('keyup', (event) => {

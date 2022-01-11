@@ -165,3 +165,28 @@ const getEngineText = () => {
   }
   return engines[k]
 }
+
+// input 防抖函数
+class AntiShakeEvent {
+  constructor(callback, timeout) {
+    this.cooldown = true
+    this.timer = null
+    this.callback = callback
+    this.timeout = timeout
+  }
+
+  // 必须调用 register 来返回 callback 函数实例
+  register() {
+    return (event) => {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      this.cooldown = false
+      this.timer = setTimeout(() => {
+        this.cooldown = true
+        this.timer = null
+        this.callback(event)
+      }, this.timeout)
+    }
+  }
+}

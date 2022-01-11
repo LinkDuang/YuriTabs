@@ -36,15 +36,17 @@ class FilterList extends HTMLElement {
     if (blockList.length !== 0) {
       input.value = blockList.join(' ')
     }
+    this.cooldown = true
+    this.timer = null
 
-    // 监听器
-    input.addEventListener('input', (event) => {
+    // 过滤监听器 + 防抖
+    let shake = new AntiShakeEvent((event) => {
       let value = event.target.value
       let arr = JSON.stringify(value.split(' '))
       localStorage.setItem('blockList', arr)
       __genTabs()
-    })
-
+    }, 500)
+    input.addEventListener('input', shake.register())
     this.appendChild(content)
   }
 
