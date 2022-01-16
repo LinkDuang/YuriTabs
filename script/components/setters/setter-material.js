@@ -1,6 +1,15 @@
 insertTemplate((dom) => {
   dom.innerHTML += `
     <template id="template-material-picker">
+      <style>
+        /* 材质选择按钮 */
+        .material-button.active {
+          border: #560df8 3px solid;
+        }
+        .material-button.active:hover {
+          border: #581dd6 3px solid;
+        }
+      </style>
       <div class="flex items-center justify-start h-16 mt-4">
         <div class="w-1/4 flex items-center">
           <i class="gg-color-bucket ml-1"></i>
