@@ -51,3 +51,6 @@
   position: relative;
   z-index: 10;
 }
+.icon-img{
+  filter: contrast(0.5);
+}
