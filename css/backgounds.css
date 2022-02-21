@@ -173,7 +173,7 @@
 }
 
 .dark-material-none {
-  background-color: #222 !important;
+  background-color: #1c1c1c !important;
 }
 .dark-material-1 {
   background-image: radial-gradient(circle at center center, transparent, rgb(33, 33, 33)),

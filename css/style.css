@@ -19,15 +19,14 @@
   animation: neonBlue 0.15s ease-in-out 3;
 }
 
-[data-theme='dark'] .link-item {
-  border-color: rgba(255, 255, 255, 1) !important;
+.link-item:hover {
+  transition: inherit;
 }
-[data-theme='dark'] .btn:focus {
-  outline-color: rgba(255, 255, 255, 1) !important;
-}
-
 [data-theme='light'] .link-item:hover {
-  background-color: rgba(31, 41, 55, 1);
+  background-color: #d8d8db;
+}
+[data-theme='dark'] .link-item:hover {
+  background-color: #515253;
 }
 
 .close-label .gg-close {

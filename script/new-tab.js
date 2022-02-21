@@ -23,13 +23,8 @@ let rainbowColors = {
   8: 'bg-purple-400',
 }
 
-const genButton = (i, iconStyle, laneIndex) => {
+const getIconUrl = (i) => {
   let host = parseHost(i.url)
-
-  // icons
-  if (iconStyle === null) {
-    iconStyle = 'icon'
-  }
   let url = `https://icon.horse/icon/${host}`
   let iconUrl = ''
   let icons = local.get(`cacheIcons`, {})
@@ -38,6 +33,15 @@ const genButton = (i, iconStyle, laneIndex) => {
   } else {
     iconUrl = url
   }
+  return iconUrl
+}
+
+const genButton = (i, iconStyle, laneIndex) => {
+  // icons
+  if (iconStyle === null) {
+    iconStyle = 'icon'
+  }
+  let iconUrl = getIconUrl(i)
   let dict = {
     icon: `<div class="rounded-full w-5 h-5 mr-2">
               <img src="${iconUrl}" class="icon-img" draggable="false" />
@@ -49,8 +53,8 @@ const genButton = (i, iconStyle, laneIndex) => {
   //render
   const buttonDom = `
     <a href=${i.url} 
-      draggable="true" 
-      class="link-card link-item btn normal-case w-full mb-2 mt-2 btn-outline flex-row flex-nowrap justify-start p-2">
+      draggable="false" 
+      class="link-card link-item btn btn-ghost normal-case w-full mb-1 flex-row flex-nowrap justify-start p-2">
       <div class="avatar">
         ${dict[iconStyle]} 
       </div>
@@ -77,7 +81,7 @@ const genLaneWithLaneData = (rawLane, laneIndex) => {
   let buttonGroup = filted.map((i) => genButton(i, iconStyle, laneIndex))
 
   let laneDom = `
-    <div class="pl-3 card-title">
+    <div class="card-title truncate border-b-2 text-xl">
       ${rawLane.title}
     </div>
     <div class="">
@@ -107,20 +111,32 @@ const __genTabs = () => {
         return
       }
       let laneDom = genLaneWithLaneData(lane, laneIndex)
-      // container.innerHTML += laneDom // 更慢一些的方法
-      let div = document.createElement('div')
-      div.className = `lane ${margin} ${width}`
-      div.innerHTML = laneDom
-      container.appendChild(div)
+      // 方案1，最坏，更慢一些的方法
+      // container.innerHTML += laneDom
+
+      // 方案2，略好一点
+      // let div = document.createElement('div')
+      // div.className = `lane ${margin} ${width}`
+      // div.innerHTML = laneDom
+      // container.appendChild(div)
+
+      // 方案3，完美
+      let html = `
+        <div class="lane ${margin} ${width}">
+          ${laneDom}
+        </div>
+      `
+      container.insertAdjacentHTML('beforeend', html)
     })
 
     if (other.children.length > 0) {
       let laneDom = genLaneWithLaneData(other, pool.length - 1)
-      // container.innerHTML += laneDom
-      let div = document.createElement('div')
-      div.className = `lane ${margin} ${width}`
-      div.innerHTML = laneDom
-      container.appendChild(div)
+      let html = `
+        <div class="lane ${margin} ${width}">
+          ${laneDom}
+        </div>
+      `
+      container.insertAdjacentHTML('beforeend', html)
     }
   })
 }
